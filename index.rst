@@ -7,16 +7,15 @@ Programación, 1er semestre de 2010
 ==================================
 
 :Profesor: Roberto Bonvallet <roberto.bonvallet@usm.cl>
-:Ayudante: *Por definir*
-:Clases:  Lunes 1-2, Miércoles 1-2
-:Ayudantía: *Por definir*
+:Clases:  miércoles 12-13 (laboratorio), viernes 5-6, viernes 7-8.
 
-:Página del ramo: http://programacion.inf.utfsm.cl
-:Página del paralelo: http://csrg.inf.utfsm.cl/~rbonvall/progra-utfsm-2010-1
+:Página del ramo: http://csrg.inf.utfsm.cl/~rbonvall/progra-ust-2010-1
 
+Programa
+--------
 
-Contenidos del ramo
--------------------
+Contenidos
+----------
 
 .. toctree::
    :maxdepth: 1

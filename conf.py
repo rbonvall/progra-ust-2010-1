@@ -19,7 +19,7 @@ jsmath_path = 'jsMath/easy/load.js'
 
 source_suffix = '.rst'
 master_doc = 'index'
-highlight_language = 'pascal'
+highlight_language = 'python'
 
 project = u'Programación 1-2010'
 copyright = u'2010, Roberto Bonvallet'
@@ -71,7 +71,7 @@ html_use_index = True
 # base URL from which the finished HTML is served.
 #html_use_opensearch = ''
 
-htmlhelp_basename = 'progra-utfsm-2010-1'
+htmlhelp_basename = 'progra-ust-2010-1'
 
 # -- Options for LaTeX output --------------------------------------------------
 

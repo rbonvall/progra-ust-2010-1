@@ -27,5 +27,5 @@ Contenidos
 
 Calendario
 ----------
-(poner calendario)
+.. include:: calendario.rst
 

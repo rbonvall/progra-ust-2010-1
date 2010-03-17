@@ -11,9 +11,6 @@ Programación, 1er semestre de 2010
 
 :Página del ramo: http://csrg.inf.utfsm.cl/~rbonvall/progra-ust-2010-1
 
-Programa
---------
-
 Contenidos
 ----------
 
@@ -24,6 +21,16 @@ Contenidos
    elementos
    diagramas-de-flujo
    pseudocodigo
+
+Planificación semestral
+-----------------------
+
+.. raw:: html
+
+   <iframe src="http://spreadsheets.google.com/pub?key=t9x7R4HcQvGezKpDR69lCCQ&chrome=false&single=true&gid=0&output=html&widget=true"
+      width="600"
+      height="300"
+      frameborder="0"></iframe>
 
 Calendario
 ----------

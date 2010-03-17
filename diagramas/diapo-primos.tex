@@ -1,0 +1,66 @@
+\documentclass[10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{calc,shapes,arrows}
+
+\newcommand{\var}[1]{\ensuremath{\text{\texttt{#1}}}}
+
+\title {Algoritmos}
+\author{Roberto Bonvallet}
+\institute[]{
+    %Departamento de Inform\'atica \\
+    %Universidad T\'ecnica Federico Santa Mar\'{\i}a
+}
+\date{\today}
+
+\begin{document}
+\input{flujo}
+\tikzstyle{conn} = [thick, draw=black, -latex']
+
+\begin{frame}
+    \titlepage
+\end{frame}
+    
+\begin{frame}[fragile]
+    \begin{tikzpicture}[node distance=13ex, auto, scale=0.7, transform shape]
+        % Place nodes
+        \node [node] (start) { inicio };
+        \node [io, below of=start, yshift=1em] (input) { $n = \var{entrada}()$ };
+        \node [stmt, below of=input, yshift=1em] (init-d) { $d = 2$ };
+        \node [decision, below of=init-d] (terminate) { ¿$d\le n/2$? };
+        \node [decision, below of=terminate] (divides) { ¿$n\bmod d = 0$? };
+        \node [stmt, right of=divides, node distance=13em] (incr) { $d = d + 1$ };
+        \node [io, below of=divides] (print-composite) {
+            $\var{escribir}(n, \text{``es compuesto''})$
+        };
+        \node [io, left of=print-composite,node distance=15em] (print-prime) {
+            $\var{escribir}(n, \text{``es primo''})$
+        };
+        \node [node, below of=print-composite] (end) {fin};
+
+        \path [conn] (start) -- (input);
+        \path [conn] (input) -- (init-d);
+        \path [conn] (init-d) -- (terminate);
+        \path [conn] (terminate) --
+                     node [very near start] {sí}
+                     (divides);
+        \path [conn] (terminate.west) -|
+                     node [very near start] {no}
+                     (print-prime.north);
+        \path [conn] (divides) --
+                     node [very near start] {sí}
+                     (print-composite);
+        \path [conn] (divides) --
+                     node [very near start] {no}
+                     (incr);
+        \path [conn] (incr.north) |- (terminate.east);
+        \node [inner sep=0pt] (m) at ($ (print-composite.south)!.5!(end.north) $) {};
+        \path [conn] (print-prime.south) |- (m);
+        \path [conn] (print-composite) -- (end);
+    \end{tikzpicture}
+\end{frame}
+
+\end{document}
+

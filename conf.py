@@ -19,7 +19,7 @@ jsmath_path = 'jsMath/easy/load.js'
 
 source_suffix = '.rst'
 master_doc = 'index'
-highlight_language = 'python'
+highlight_language = 'python3'
 
 project = u'Programación 1-2010'
 copyright = u'2010, Roberto Bonvallet'

@@ -19,8 +19,9 @@ Contenidos
 
    algoritmos
    elementos
-   diagramas-de-flujo
-   pseudocodigo
+
+.. diagramas-de-flujo
+.. pseudocodigo
 
 Planificación semestral
 -----------------------

@@ -100,12 +100,15 @@ El lenguaje natural (la manera en que hablamos a diario)
 no es el más apropiado para describir un algoritmo:
 es complejo, ambiguo e impreciso.
 
-Un algoritmo debe ser descrito en un lenguaje simbólico universal.
-Dos lenguajes que aprenderemos a continuación son
-los `diagramas de flujo <diagramas-de-flujo.html>`_
-y el `pseudocódigo <pseudocodigo.html>`_.
-
-Veremos como representar nuestro ejemplo usando ambos métodos.
+Un algoritmo debe ser descrito mediante símbolos
+cuyo significado sea universal.
+Primero veremos
+cuáles son los elementos básicos
+con los que un algoritmo es descrito.
+A continuación,
+aprenderemos dos medios para representar un algoritmo:
+los diagramas de flujo
+y los lenguajes de programación.
 
 Comentarios
 -----------

@@ -110,8 +110,10 @@ se representa así::
 
     nombre = input()
 
-Durante la ejecución, significa que el dato
-queda guardado en la variable.
+(``input`` significa «ingresar» en inglés).
+Durante la ejecución,
+esto significa que el dato
+queda guardado en la variable ``nombre``.
 
 En el ejemplo, la entrada ocurre en el paso 1,
 y puede ser representada así::
@@ -132,8 +134,9 @@ La salida se representa así::
 
     print(mensaje)
 
+(``print`` significa «imprimir» en inglés).
 Si el mensaje es un texto literal,
-va entre comillas simples.
+va entre comillas.
 Si es una variable,
 va sólo el nombre de la variable.
 

@@ -22,7 +22,7 @@ también son expresiones por sí solas.
 En el ejemplo, :math:`b^2`, :math:`b` y :math:`4ac`
 son expresiones.
 
-Al representar las expresiones,
+Al escribir las expresiones,
 representaremos las multiplicaciones explicitamente
 con un asterisco::
 

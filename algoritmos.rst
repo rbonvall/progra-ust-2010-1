@@ -5,7 +5,6 @@ Algoritmos
 
 Un **algoritmo** es una secuencia de pasos para resolver un problema.
 
-Todo algoritmo tiene un inicio y un final.
 Los pasos deben estar muy bien definidos,
 y tienen que describir sin ambigüedades
 cómo llegar desde el inicio hasta el final.
@@ -23,6 +22,17 @@ Un algoritmo tiene tres componentes que siempre están presentes:
 2. el **proceso**: son los pasos que hay que seguir,
    utilizando la entrada;
 3. la **salida**: es el resultado que entrega el algoritmo.
+
+El proceso describe cómo la entrada es transformada
+en la salida.
+
+.. index:: problema computacional
+
+Los algoritmos son una herramienta para resolver
+**problemas computacionales**.
+La definición de un problema computacional
+especifica en términos generales
+la relación deseada entre la entrada y la salida
 
 Todo el mundo conoce y utiliza algoritmos a diario,
 incluso sin darse cuenta:
@@ -76,7 +86,14 @@ con :math:`a = 2`, :math:`b = -5` y :math:`c = 2`.
 Sus soluciones son :math:`x_1 = 1/2` y :math:`x_2 = 2`,
 como se puede comprobar reemplazando estos valores en la ecuación.
 
-En álgebra aprendemos un algoritmo para resolver estas ecuaciones.
+El problema computacional de resolver una ecuación cuadrática
+puede ser planteado así:
+
+  Dados :math:`a`, :math:`b` y :math:`c`,
+  entontrar los valores de :math:`x`
+  que satisfacen :math:`ax^2 + bx + c = 0`.
+
+En álgebra aprendemos un algoritmo para resolver este problema.
 Es lo suficientemente detallado para que pueda usarlo cualquier persona,
 incluso sin saber qué es una ecuación cuadrática.
 
@@ -100,7 +117,7 @@ El lenguaje natural (la manera en que hablamos a diario)
 no es el más apropiado para describir un algoritmo:
 es complejo, ambiguo e impreciso.
 
-Un algoritmo debe ser descrito mediante símbolos
+Un algoritmo debe ser descrito mediante un lenguaje
 cuyo significado sea universal.
 Primero veremos
 cuáles son los elementos básicos
@@ -113,4 +130,5 @@ y los lenguajes de programación.
 Comentarios
 -----------
 .. include:: disqus.rst
+
 

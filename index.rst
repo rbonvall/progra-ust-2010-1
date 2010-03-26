@@ -20,6 +20,7 @@ Contenidos
 
    algoritmos
    elementos
+   fibonacci
 
 .. diagramas-de-flujo
 .. pseudocodigo

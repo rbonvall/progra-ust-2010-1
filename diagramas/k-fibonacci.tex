@@ -22,10 +22,12 @@
              \bigr)$
     };
     \node [decision, below of=read] (is-zero) { ¿$n == 0$? };
-    \node [stmt, below of=is-zero, text width=10em] (init) {
-        $\var{actual}\assign 1$ \\
-        $\var{anterior}\assign 0$ \\
-        $\var{cuenta}\assign 1$ \\
+    \node [stmt, below of=is-zero] (init) {
+        \begin{minipage}{7em}
+            $\var{actual}\assign 1$ \\
+            $\var{anterior}\assign 0$ \\
+            $\var{cuenta}\assign 1$
+        \end{minipage}
     };
     \node [stmt, left of=init, node distance=10em] (zero) {
         $\var{actual}\assign 0$
@@ -33,11 +35,13 @@
     \node [decision, below of=init, node distance=18ex] (is-kth) {
         ¿$\var{cuenta} < k$?
     };
-    \node [stmt, right of=is-kth, text width=15em, node distance=17em] (update) {
-        $\var{suma}\assign \var{actual} + \var{anterior}$ \\
-        $\var{anterior}\assign \var{actual}$ \\
-        $\var{actual}\assign \var{suma}$ \\
-        $\var{cuenta}\assign \var{cuenta} + 1$
+    \node [stmt, right of=is-kth, node distance=17em] (update) {
+        \begin{minipage}{13em}
+            $\var{suma}\assign \var{actual} + \var{anterior}$ \\
+            $\var{anterior}\assign \var{actual}$ \\
+            $\var{actual}\assign \var{suma}$ \\
+            $\var{cuenta}\assign \var{cuenta} + 1$
+        \end{minipage}
     };
     \node [io, below of=is-kth, node distance=18ex] (write-kth) {
         \(\var{print}%

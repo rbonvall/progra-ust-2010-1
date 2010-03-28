@@ -139,8 +139,8 @@ cuando ``contador`` haya llegado hasta :math:`n`.
 El algoritmo terminado
 ----------------------
 
-(aquí voy a poner el diagrama de flujo
-una vez que lo haya dibujado)
+.. image:: _static/imagenes/diagrama-flujo-fibonacci.png
+   :alt: (Diagrama de flujo del algoritmo de Fibonacci)
 
 Tarea
 -----

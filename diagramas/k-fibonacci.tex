@@ -6,7 +6,7 @@
 \usepackage{tikz}
 \usetikzlibrary{calc,shapes,arrows}
 
-\newcommand{\assign}{\ensuremath{:=}}
+\newcommand{\assign}{\ensuremath{=}}
 \newcommand{\var}[1]{\ensuremath{\text{\texttt{#1}}}}
 
 \begin{document}
@@ -16,37 +16,54 @@
 \begin{tikzpicture}[node distance=13ex, auto]
     % Place nodes
     \node [node] (start) { inicio };
-    \node [io, below of=start] (read) { Leer($k$) };
-    \node [decision, below of=read] (is-zero) { ¿$k = 0$? };
-    \node [stmt, below of=is-zero] (zero) {
-        $\var{actual}\assign 0$; \\
+    \node [io, below of=start] (read) {
+        $n = \var{int}\bigl(
+                 \var{input}(\text{``¿Cuál es el número $n$?''})
+             \bigr)$
     };
-    \node [stmt, right of=zero, text width=10em, node distance=12em] (init) {
-        $\var{actual}\assign 1$; \\
-        $\var{anterior}\assign 0$;
-        $\var{cuenta}\assign 1$; \\
+    \node [decision, below of=read] (is-zero) { ¿$n == 0$? };
+    \node [stmt, below of=is-zero, text width=10em] (init) {
+        $\var{actual}\assign 1$ \\
+        $\var{anterior}\assign 0$ \\
+        $\var{cuenta}\assign 1$ \\
     };
-    \node [decision, below of=init] (is-kth) {
+    \node [stmt, left of=init, node distance=10em] (zero) {
+        $\var{actual}\assign 0$
+    };
+    \node [decision, below of=init, node distance=18ex] (is-kth) {
         ¿$\var{cuenta} < k$?
     };
-    \node [stmt, below of=is-kth, text width=15em, node distance=15ex] (update) {
-        $\var{suma}\assign \var{actual} + \var{anterior}$; \\
-        $\var{anterior}\assign \var{actual}$; \\
-        $\var{actual}\assign \var{suma}$; \\
-        $\var{cuenta}\assign \var{cuenta} + 1$;
+    \node [stmt, right of=is-kth, text width=15em, node distance=17em] (update) {
+        $\var{suma}\assign \var{actual} + \var{anterior}$ \\
+        $\var{anterior}\assign \var{actual}$ \\
+        $\var{actual}\assign \var{suma}$ \\
+        $\var{cuenta}\assign \var{cuenta} + 1$
     };
-    \node [io, below of=zero, node distance=40ex] (write-kth) { Escribir($\var{actual}$) };
+    \node [io, below of=is-kth, node distance=18ex] (write-kth) {
+        \(\var{print}%
+           (\text{``El $n$-ésimo número de Fibonacci es''}, \var{actual})%
+        \)
+    };
     \node [node, below of=write-kth] (end) { fin };
 
     \path [conn] (start) -- (read);
     \path [conn] (read) -- (is-zero);
-    \path [conn] (is-zero) -| node[very near start] {no} (init);
-    \path [conn] (is-zero) -- node[near start] {sí} (zero);
+    \path [conn] (is-zero) --
+                 node[very near start] {no}
+                 (init);
+    \path [conn] (is-zero.west) -|
+                 node[very near start] {sí}
+                 (zero);
     \path [conn] (init) -- (is-kth);
-    \path [conn] (update.east) -- +(1, 0) |- (is-kth.east);
-    \path [conn] (zero) -- (write-kth);
-    \path [conn] (is-kth)      -- node[near start] {no} (update);
-    \path [conn] (is-kth.west) -| node[very near start] {sí} (write-kth.north);
+    \path [conn] (update.north) |-
+                 ($ (init.south)!.5!(is-kth.north) $);
+    \path [conn] (zero.south) |-
+                 ($ (is-kth.south)!.5!(write-kth.north) $);
+    \path [conn] (is-kth) -- 
+                 node[near start] {sí}
+                 (update);
+    \path [conn] (is-kth) -- node[very near start] {no} (write-kth);
+%    \path [conn] (is-kth.west) -| node[very near start] {sí} (write-kth.north);
     \path [conn] (write-kth)  -- (end);
 \end{tikzpicture}
 

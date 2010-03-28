@@ -73,7 +73,7 @@ Para saber cuándo hemos llegado al número deseado,
 hay que llevar la cuenta de en qué paso vamos.
 Para ello,
 utilizaremos una variable adicional
-que denominaremos ``contador``.
+que denominaremos ``cuenta``.
 En cada paso,
 la iremos incrementando en 1.
 
@@ -82,7 +82,7 @@ muestra cómo cambiarán las variables
 a medida que el algoritmo avanza.
 
 ============ == == == == == == == == ===
-``contador``  0  1  2  3  4  5  6  7 ...
+``cuenta``    0  1  2  3  4  5  6  7 ...
 ``anterior``  0  1  1  2  3  5  8 13 ...
 ``actual``    1  1  2  3  5  8 13 21 ...
 ============ == == == == == == == == ===
@@ -119,22 +119,35 @@ Las asignaciones correctas son::
     anterior = actual
     actual = suma
 
-El contador lo actualizaremos sumándole 1 en cada paso::
+La cuenta la actualizaremos sumándole 1 en cada paso::
 
-    contador = contador + 1
+    cuenta = cuenta + 1
 
 Esta operación se puede escribir también de manera abreviada::
 
-    contador += 1
+    cuenta += 1
 
-El contador indica en qué número de Fibonacci
-(es decir, en qué valor de :math:`k`,
+La cuenta indica qué número de Fibonacci
+(es decir, qué valor de :math:`k`,
 según la definición de arriba)
-vamos actualmente.
+es el que está en la variable ``actual``.
 
 Como lo que buscamos es el :math:`n`-ésimo número de Fibonacci,
 debemos detener la iteración
-cuando ``contador`` haya llegado hasta :math:`n`.
+cuando ``cuenta`` haya llegado hasta :math:`n`.
+
+El único caso que no hemos cubierto
+es :math:`n = 0`.
+Este caso es especial porque en él
+no existe un número anterior.
+La manera más sencilla de cubrirlo
+es comenzar el algoritmo
+preguntando si estamos en este caso especial.
+Si es así,
+ya sabemos que la respuesta es 0.
+En caso contrario,
+usamos el algoritmo tal como lo habíamos diseñado.
+
 
 El algoritmo terminado
 ----------------------

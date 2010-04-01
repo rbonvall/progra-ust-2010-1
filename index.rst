@@ -25,6 +25,20 @@ Contenidos
 .. diagramas-de-flujo
 .. pseudocodigo
 
+Cómo instalar Python
+--------------------
+Los programas que descargar e instalar son dos:
+
+* el `intérprete de Python`_, para ejecutar programas;
+* el entorno de desarrollo `PyScripter`_, para escribir programas.
+
+Ambos programas se instalan
+simplemente haciendo clic en «siguiente» en cada paso.
+
+.. _intérprete de Python: http://www.python.org/ftp/python/3.1.2/python-3.1.2.msi
+.. _PyScripter: http://pyscripter.googlecode.com/files/PyScripter-v1.9.9.7-Setup.exe
+
+
 Planificación semestral
 -----------------------
 

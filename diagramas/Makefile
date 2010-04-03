@@ -9,6 +9,14 @@ all: $(PDFFILES)
 	@rm .my_log
 
 clean:
-	rm -f $(wildcard *.aux) $(wildcard *.log) $(wildcard *.pdf)
+	rm -f \
+            $(wildcard *.aux) \
+	    $(wildcard *.log) \
+	    $(wildcard *.pdf) \
+	    $(wildcard *.nav) \
+	    $(wildcard *.toc) \
+	    $(wildcard *.snm) \
+	    $(wildcard *.vrb) \
+	    $(wildcard *.out)
 
 .PHONY: clean all

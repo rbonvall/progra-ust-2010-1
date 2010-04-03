@@ -5,7 +5,7 @@
 \usepackage{tikz}
 \usetikzlibrary{calc,shapes,arrows}
 
-\newcommand{\assign}{\ensuremath{:=}}
+\newcommand{\assign}{\ensuremath{=}}
 
 \begin{document}
 \pagestyle{empty}
@@ -14,14 +14,16 @@
 \begin{tikzpicture}[node distance=11ex, auto]
     % Place nodes
     \node [node] (start) {inicio};
-    \node [io, below of=start, text width=4em] (read) {
-        Leer($a$) \\ %
-        Leer($b$) \\ %
-        Leer($c$) \\ %
+    \node [io, below of=start] (read) {
+        \begin{minipage}{9em}
+            $a = \texttt{float}\bigl(\texttt{input}()\bigr)$ \\ %
+            $b = \texttt{float}\bigl(\texttt{input}()\bigr)$ \\ %
+            $c = \texttt{float}\bigl(\texttt{input}()\bigr)$
+        \end{minipage}
     };
     \node [stmt, below of=read] (disc) {$\Delta \assign b^2 - 4ac$};
     \node [decision, below of=disc] (neg)  {¿$\Delta < 0$?};
-    \node [decision, below of=neg]  (zero) {¿$\Delta = 0$?};
+    \node [decision, below of=neg]  (zero) {¿$\Delta == 0$?};
 
     \node [stmt, below of=zero, text width=10em] (pos-sol) {
         $x_1 \assign (-b + \sqrt{\Delta})/2a$
@@ -35,16 +37,16 @@
                node distance=20ex,
                text width=18em,
         ] (pos-out) {
-        Escribir(``La primera solución es'', $x_1$) \\ %
-        Escribir(``La segunda solución es'', $x_2$)
+        \texttt{print}(``La primera solución es'', $x_1$) \\ %
+        \texttt{print}(``La segunda solución es'', $x_2$)
     };
     \node [io, below of=zero-sol] (zero-out) {%
-        Escribir(``La única solución es'', $x_1$)%
+        \texttt{print}(``La única solución es'', $x_1$)%
     };
     \node [io, right of=zero-out,
                node distance=24em,
                text width=14em] (neg-out) {%
-        Escribir(``No hay soluciones'')%
+        \texttt{print}(``No hay soluciones'')%
     };
     \node [node, below of=pos-out] (end) {fin};
 

@@ -22,14 +22,6 @@ también son expresiones por sí solas.
 En el ejemplo, :math:`b^2`, :math:`b` y :math:`4ac`
 son expresiones.
 
-Al escribir las expresiones,
-representaremos las multiplicaciones explicitamente
-con un asterisco::
-
-    b² − 4 * a * c
-
-Así evitaremos confundir los valores ``a`` y ``c``
-con un único valor llamado ``ac``.
 
 Asignaciones
 ------------

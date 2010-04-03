@@ -20,10 +20,11 @@ Contenidos
 
    algoritmos
    elementos
+   diagramas-de-flujo
    fibonacci
+   expresiones
+   tipos
 
-.. diagramas-de-flujo
-.. pseudocodigo
 
 Cómo instalar Python
 --------------------

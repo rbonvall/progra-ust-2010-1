@@ -114,7 +114,7 @@ Algunos operadores aritméticos binarios son:
 * la **división real** ``/``;
 * la **división entera** ``//`` (cuociente de la división);
 * el **módulo** ``%`` (resto de la división);
-* la **exponenciación** ``**`` («elevado a»).
+* la **potencia** ``**`` («elevado a»).
 
 Las divisiones y el módulo suelen causar confusión.
 Algunos ejemplos que pueden dejarlos más claro:
@@ -191,7 +191,7 @@ y que las comparaciones se evalúan antes que las operaciones lógicas.
 
 Operaciones dentro de un mismo nivel
 son evaluadas en el orden en que aparecen en la expresión,
-de izquierda a derecha.  La única excepción son las exponenciaciones,
+de izquierda a derecha.  La única excepción son las potencias,
 que se evalúan de derecha a izquierda.
 
 Para forzar un orden de evaluación distinto a la regla de precedencia,

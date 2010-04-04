@@ -17,16 +17,10 @@ cuyo valor depende de qué valores tienen
 :math:`a`, :math:`b` y :math:`c`
 al momento de la evaluación.
 
-Las diferentes partes de una expresión
-también son expresiones por sí solas.
-En el ejemplo, :math:`b^2`, :math:`b` y :math:`4ac`
-son expresiones.
-
-
 Asignaciones
 ------------
 
-.. index:: asignación, variable
+.. index:: asignación, variable, identificador
 
 Cuando un algoritmo calcula valores,
 se necesita ponerles un nombre para poder referirse a ellos
@@ -36,7 +30,10 @@ cuando calculamos el discriminante y lo llamamos :math:`Δ`.
 Esto se llama una **asignación**,
 y se representa así::
 
-    variable = expresión
+    nombre = expresión
+
+Al nombre usado en una expresión se le denomina
+**variable** o **identificador**.
 
 La asignación del ejemplo sería::
 
@@ -64,7 +61,7 @@ Esto *no* significa que 15 = 16.
 Condicionales
 -------------
 
-.. index:: condicional, sí-entonces, sí-entonces-si-no
+.. index:: condicional
 
 A veces un algoritmo debe realizar pasos diferentes
 bajo condiciones distintas.
@@ -100,12 +97,12 @@ Entrada
 Cuando un algoritmo necesita recibir un dato,
 se representa así::
 
-    nombre = input()
+    variable = input()
 
 (``input`` significa «ingresar» en inglés).
 Durante la ejecución,
 esto significa que el dato
-queda guardado en la variable ``nombre``.
+queda guardado en la variable.
 
 En el ejemplo, la entrada ocurre en el paso 1,
 y puede ser representada así::

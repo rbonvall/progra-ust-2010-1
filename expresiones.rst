@@ -2,12 +2,11 @@ Expresiones
 ===========
 .. index:: literal, variable, operador, llamada a función, expresión
 
-Como vimos anteriormente,
-una **expresión** es una combinación de valores y operaciones
-que al ser evaluados entregan un valor.
+Una **expresión** es una combinación de valores y operaciones
+que, al ser evaluados, entregan un valor.
 
 Algunos elementos que pueden formar parte de una expresión son:
-valores **literales** (como ``2``, ``5.7`` u ``"hola"``),
+valores **literales** (como ``2``, ``"hola"`` o ``5.7``),
 **variables**, **operadores** y **llamadas a funciones**.
 
 Por ejemplo,
@@ -20,6 +19,28 @@ depende del valor que tiene la variable ``n``
 en el momento de la evaluación::
 
     n / 7 + 5
+
+Una expresión está compuesta de otras expresiones,
+que son evaluadas recursivamente
+hasta llegar a sus componentes más simples,
+que son los literales y las variables.
+
+Por ejemplo, en la expresión::
+
+    b ** 2 - 4 * a * c
+
+las subexpresiones que son evaluadas son las siguientes::
+
+    b ** 2
+    b
+    2
+    4 * a * c
+    4 * a
+    4
+    a
+    c
+
+**Ejercicio:** ¿por qué no ``a * c``?
 
 Operadores
 ----------
@@ -80,25 +101,152 @@ Operadores aritméticos
 ~~~~~~~~~~~~~~~~~~~~~~
 .. index:: operador aritmético
 
+Los **operadores aritméticos** son los que representan operaciones numéricas.
+Tanto sus operandos como sus resultados son valores numéricos.
+
+.. index:: + (binario), - (binario), /, //, %, ** , *
+
+Algunos operadores aritméticos binarios son:
+
+* la **suma** ``+``;
+* la **resta** ``-``;
+* la **multiplicación** ``*``;
+* la **división real** ``/``;
+* la **división entera** ``//`` (cuociente de la división);
+* el **módulo** ``%`` (resto de la división);
+* la **exponenciación** ``**`` («elevado a»).
+
+Las divisiones y el módulo suelen causar confusión.
+Algunos ejemplos que pueden dejarlos más claro:
+
+* ``17 / 3`` entrega el valor ``5.666666666666667``;
+* ``17 // 3`` entrega el valor ``5``;
+* ``17 % 3`` entrega el valor ``2``.
+
+Una relación entre ``//`` y ``%`` que siempre se cumple es::
+
+    (a // b) * b + (a % b) == a
+
+.. index:: + (unario), - (unario), positivo, negativo
+
+Además,
+hay dos operadores aritméticos unarios:
+
+* el **positivo** ``+``, y
+* el **negativo** ``-``.
+
 
 Operadores relacionales
 ~~~~~~~~~~~~~~~~~~~~~~~
 .. index:: operador relacional
 
+Los **operadores relacionales** son los que permiten comparar valores.
+Sus operandos son cualquier cosa que pueda ser comparada,
+y sus resultados siempre son valores lógicos.
 
+Algunos operadores relacionales son:
 
+* el **igual a** ``==`` (no confundir con el ``=`` de las asignaciones);
+* el **distinto a** ``!=``;
+* el **mayor que** ``>``;
+* el **mayor o igual que** ``>=``;
+* el **menor que** ``<``;
+* el **menor o igual que** ``<=``;
+
+Los operadores relacionales pueden ser encadenados,
+como se usa en matemáticas,
+de la siguiente manera::
+
+    0 < x <= 10
+
+Esta expresión es equivalente a::
+
+    0 < x and <= 10
 
 Precedencia
 -----------
-.. index:: precedencia de operadores
+.. index:: precedencia de operadores, paréntesis
+
+La **precedencia de operadores**
+es una regla que especifica
+en qué orden deben ser evaluadas
+las operaciones de una expresión.
+
+La precedencia está dada por la siguiente lista,
+en que los operadores han sido listados
+en orden de menor a mayor precedencia:
 
 * ``or``
 * ``and``
 * ``not``
-* ``in``, ``not in``, ``<``, ``<=``, ``>``, ``>=``, ``!=``, ``==``
+* ``<``, ``<=``, ``>``, ``>=``, ``!=``, ``==``
 * ``+``, ``-`` (suma y resta)
 * ``*``, ``/``, ``//``, ``%``
 * ``+``, ``-`` (positivo y negativo)
 * ``**``
+
+Esto significa, por ejemplo,
+que las multiplicaciones se evalúan antes que las sumas,
+y que las comparaciones se evalúan antes que las operaciones lógicas.
+
+Operaciones dentro de un mismo nivel
+son evaluadas en el orden en que aparecen en la expresión,
+de izquierda a derecha.  La única excepción son las exponenciaciones,
+que se evalúan de derecha a izquierda.
+
+Para forzar un orden de evaluación distinto a la regla de precedencia,
+deben usarse paréntesis.
+
+Por ejemplo, consideremos la siguiente expresión::
+
+    15 + 59 * 75 // 9 < 2 ** 3 ** 2 and (15 + 59) * 75 % n == 1
+
+y supongamos que la variable ``n`` tiene el valor 2.
+Aquí podemos ver cómo la expresión es evaluada
+hasta llegar al resultado final::
+
+    15 + 59 * 75 // 9 < 2 ** 3 ** 2 and (15 + 59) * 75 % n == 1
+    #                          ↓
+    15 + 59 * 75 // 9 < 2 **   9    and (15 + 59) * 75 % n == 1
+    #                     ↓
+    15 + 59 * 75 // 9 < 512         and (15 + 59) * 75 % n == 1
+    #       ↓
+    15 +  4425   // 9 < 512         and (15 + 59) * 75 % n == 1
+    #            ↓
+    15 +        491   < 512         and (15 + 59) * 75 % n == 1
+    #                                       ↓
+    15 +        491   < 512         and    74     * 75 % n == 1
+    #                                             ↓
+    15 +        491   < 512         and          5550  % n == 1
+    #                                                    ↓
+    15 +        491   < 512         and          5550  % 2 == 1
+    #                                                  ↓
+    15 +        491   < 512         and                0   == 1
+    #  ↓
+      506             < 512         and                0   == 1
+    #                 ↓
+                     True           and                0   == 1
+    #                                                      ↓
+                     True           and                  False
+    #                                ↓
+                                   False
+
+La operación entre paréntesis ``(15 + 59)``
+debe ser evaluada antes de la multiplicación por 75,
+ya que es necesario conocer su resultado
+para poder calcular el producto.
+El momento preciso en que ello ocurre no es importante.
+
+Lo mismo ocurre con la evaluación de la variable ``n``:
+sólo importa que sea evaluada antes de ser usada
+por el operador de módulo.
+
+En el ejemplo,
+ambos casos fueron evaluados
+inmediatamente antes de que su valor sea necesario.
+
+Comentarios
+-----------
+.. include:: disqus.rst
 
 

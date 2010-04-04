@@ -9,8 +9,7 @@ Programación, 1er semestre de 2010
 :Profesor: Roberto Bonvallet <roberto.bonvallet@usm.cl>
 :Clases:  miércoles 12-13 (laboratorio), viernes 5-6, viernes 7-8.
 
-:Página del ramo: http://csrg.inf.utfsm.cl/~rbonvall/progra-ust-2010-1
-  (la versión corta http://tr.im/progra también sirve)
+:Página del ramo: http://tr.im/progra (redirige aquí)
 
 Contenidos
 ----------

@@ -65,15 +65,17 @@ el programa deberá llamarse
 ``perico-los-palotes-p5.py``.
 
 Los problemas resueltos
-deberán ser subidos a la intranet académica
+deberán ser subidos a la `intranet académica`_
 antes del término de la sesión.
 
+.. _intranet académica: http://mensaje.santotomas.cl/
 
-Problema 1
-----------
-*Entrada*:
+
+Problema 1: saludo
+------------------
+**Entrada**:
     el nombre del usuario.
-*Salida*:
+**Salida**:
     un mensaje saludando al usuario.
 
 Por ejemplo,
@@ -81,35 +83,100 @@ si el usuario escribe ``Ricardo``,
 el programa debe entregar el mensaje ``Hola Ricardo``.
 
 
-Problema 2
-----------
-*Entrada*:
+Problema 2: promedio
+--------------------
+**Entrada**:
     cuatro notas obtenidas por un alumno.
-*Salida*:
+**Salida**:
     el promedio de las notas.
 
 Por ejemplo,
 si el usuario ingresa las notas ``6.5``, ``4.1``, ``1.7`` y ``7.0``,
-el programa debe entregar ``El promedio es 4.825``.
+el programa debe entregar el resultado ``4.825``.
 
 
-Problema 3
-----------
-*Entrada*:
+Problema 3: círculos
+--------------------
+**Entrada**:
+    el radio de un círculo.
+**Salida**:
+    el perímetros y el área del círculo.
+
+Por ejemplo,
+si el usuario ingresa el radio ``5.1``,
+el programa debe entregar el perímetro ``32.04422``
+y el área ``81.71276``.
+
+
+Problema 4: número invertido
+----------------------------
+**Entrada**:
+    un número entero de tres dígitos.
+**Salida**:
+    el número con los dígitos en orden inverso.
+
+Por ejemplo,
+si el usuario ingresa el número 391,
+el programa debe entregar el 193.
+
+Puede usar los operadores ``%`` y ``//``.
+
+
+Problema 5: parte decimal
+-------------------------
+**Entrada**:
+    un número real.
+**Salida**:
+    la parte decimal del número.
+
+Por ejemplo,
+si el usuario ingresa el número ``14.2857``,
+el programa debe entregar ``0.2857``.
+
+Recuerde que la función ``int``
+entrega la parte entera del número.
+
+
+Problema 6: años bisiestos
+--------------------------
+**Entrada**
+    un año.
+**Salida**
+    ``True`` si un año es bisiesto,
+    ``False`` si el año no es bisiesto.
+
+Los años bisiestos son los divisibles por 4,
+pero con una excepción:
+si el año es el último del siglo (termina con dos ceros),
+entonces es bisiesto sólo si es divisible por 400.
+
+Los siguientes años sí son bisiestos:
+1600, 1940, 1984, 1996, 2000, 2008.
+
+Los siguientes años no son bisiestos:
+1800, 1900, 1985, 2010, 2100.
+
+
+Problema 7: ordenamiento
+------------------------
+**Entrada**:
     tres números enteros.
-*Salida*:
+**Salida**:
     los tres números ordenados de menor a mayor.
 
 Por ejemplo,
-si el usuario ingresa ``13``, ``5``, ``9``,
+si el usuario ingresa ``13``, ``5`` y ``9``,
 el programa debe entregar ``5``, ``9`` y ``13``.
 
-Pueden utilizar las funciones ``max()`` y ``min()``,
+Puede utilizar las funciones ``max()`` y ``min()``,
 entregan respectivamente el máximo y el mínimo
 de sus argumentos.  Por ejemplo::
 
-    min(13, 5, 9)
-    max(13, 5, 9)
+    min(7, 13, 5, 11)
+    max(7, 13, 5, 11)
 
 entregan respectivamente los valores 5 y 13.
+
+Si no se le ocurre cómo resolver este problema,
+intente primero resolverlo con sólo dos números.
 

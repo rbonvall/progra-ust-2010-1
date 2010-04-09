@@ -1,5 +1,5 @@
-Tipos de datos
-==============
+Tipos de datos básicos
+======================
 
 .. index:: tipo de datos
 
@@ -8,7 +8,7 @@ que determina su dominio (qué valores puede tomar),
 qué operaciones se le pueden aplicar
 y cómo es representado internamente por el computador.
 
-A continuación revisaremos los tipos de datos más usados.
+A continuación revisaremos los tipos de datos más básicos.
 Además de estos, existen muchos otros,
 y más adelante aprenderemos a crear
 nuestros propios tipos de datos.
@@ -91,6 +91,13 @@ Estos valores son iguales, respectivamente, a
 :math:`9.1094\times 10^{-31}` y
 :math:`-24500.0`.
 
+Al combinar valores reales y enteros en una operación,
+los enteros son convertidos a reales
+antes de evaluarla.
+Por ejemplo, la expresión ``2 + 5.1``
+es convertida a ``2.0 + 5.1``,
+y tiene el valor ``7.1``.
+
 
 Valores lógicos
 ---------------
@@ -120,14 +127,134 @@ Texto
 -----
 .. index:: string, tipo de datos de texto, str
 
-Los valores que representan texto.
+A los valores que representan texto
+se les llama **strings**,
+y tienen el tipo ``str``.
 
-Listas
-------
+Los strings literales
+pueden ser representados
+con texto entre comillas simples o comillas dobles::
 
+   "ejemplo 1"
+   'ejemplo 2'
+
+Los operadores aritméticos no pueden ser aplicadas sobre strings,
+salvo dos excepciones:
+
+1. El operador ``+`` aplicado a dos strings
+   no representa la suma,
+   sino la **concatenación**,
+   que significa pegar los strings
+   uno después del otro.
+   Por ejemplo, la expresión ``"hola" + "mundo"``
+   tiene el valor ``"holamundo"``.
+
+2. El operador ``*`` aplicado a un string y a un número entero
+   no representa la multiplicación,
+   sino la **repetición**,
+   es decir, el string es repetido tantas veces como indica el número.
+   Por ejemplo, la expresión ``'a' * 3``
+   tiene el valor ``'aaa'``.
+
+Las operaciones relacionales permiten comparar strings alfabéticamente.
+Por ejemplo, la siguiente expresión tiene el valor ``True``::
+
+    "ala" < "alamo" < "bote" < "botero" < "boteros" < "zapato"
+
+Para conocer el largo de un string,
+se utiliza la función ``len()``.
+Por ejemplo, la expresión ``len('universidad')``
+tiene el valor ``11``.
+
+La función ``input()``,
+que usamos para leer la entrada del usuario,
+siempre entrega como resultado un string.
+Hay que tener la precaución
+de convertir los valores que entrega
+al tipo adecuado.
+Por ejemplo,
+el siguiente programa tiene
+un error de incompatibilidad de tipos::
+
+    n = input('Escriba un número:')
+    doble = 2 * n
+    print('El doble de n es', doble)
 
 Nulo
 ----
+.. index:: tipo nulo, None
+
+Existe un valor muy especial que se llama ``None``.
+
+``None`` es un valor que se utiliza
+en contextos en que ningún valor es válido.
+En inglés, *none* significa «ninguno».
+
+El valor ``None`` tiene su propio tipo,
+que es diferente al de todos los demás valores.
+
+
+Conversión de tipos
+-------------------
+.. index:: conversión de tipos
+
+Los tipos de los valores
+indican qué operaciones pueden ser aplicadas sobre ellos.
+
+A veces es necesario convertir valores de un tipo a otro
+para poder operar sobre ellos.
+Existen dos tipos de conversiones:
+implícitas y explícitas.
+
+Las conversiones implícitas
+son las que se hacen automáticamente
+según el contexto.
+Las conversiones implícitas
+más importantes son las siguientes:
+
+* cuando se utiliza un entero
+  en un contexto real,
+  el entero es convertido al real correspondiente;
+
+* cuando se utiliza cualquier valor
+  en un contexto booleano,
+  es convertido al valor ``True``,
+  excepto por los siguientes casos,
+  en que es convertido al valor ``False``:
+
+  * el valor ``0``,
+  * el string vacío ``''``,
+  * ``None``.
+
+* cuando se utiliza un valor lógico
+  en un contexto entero,
+  ``True`` es convertido a ``1``
+  y ``False`` a ``0``.
+
+Las conversiones explícitas se realizan
+usando el nombre del tipo de destino
+como si fuera una función.
+
+Por ejemplo,
+para convertir un valor al tipo entero,
+se utiliza la función ``int``::
+
+    int('45')  # entrega el valor 45
+    int('abc') # error
+    int(3.891) # entrega el valor 3
+    int(True)  # entrega el valor 1
+    int(None)  # error
+
+Para convertir un valor en un string,
+se utiliza la función ``str``::
+
+    str(87)     # entrega el valor '87'
+    str(True)   # entrega el valor 'True'
+
+
+
+
+
 
 Comentarios
 -----------

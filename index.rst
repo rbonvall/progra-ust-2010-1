@@ -21,9 +21,9 @@ Contenidos
    elementos
    diagramas-de-flujo
    fibonacci
+   pyscripter
    expresiones
    tipos
-
 
 Cómo instalar Python
 --------------------

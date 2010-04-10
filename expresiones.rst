@@ -200,20 +200,32 @@ en orden de menor a mayor precedencia:
 
 Esto significa, por ejemplo,
 que las multiplicaciones se evalúan antes que las sumas,
-y que las comparaciones se evalúan antes que las operaciones lógicas.
+y que las comparaciones se evalúan antes que las operaciones lógicas::
+
+    >>> 2 + 3 * 4
+    14
+    >>> 1 < 2 and 3 < 4
+    True
 
 Operaciones dentro de un mismo nivel
 son evaluadas en el orden en que aparecen en la expresión,
 de izquierda a derecha.  La única excepción son las potencias,
 que son evaluadas de derecha a izquierda::
 
-    >>> 15 * 4 % 7    # es igual a (15 * 4) % 7
-    60
+    >>> 15 * 12 % 7    # es igual a (15 * 12) % 7
+    5
     >>> 2 ** 3 ** 2   # es igual a 2 ** (3 ** 2)
     512
 
 Para forzar un orden de evaluación distinto a la regla de precedencia,
-deben usarse paréntesis.
+deben usarse paréntesis::
+
+    >>> (2 + 3) * 4
+    20
+    >>> 15 * (12 % 7)
+    75
+    >>> (2 ** 3) ** 2
+    64
 
 Por ejemplo, consideremos la siguiente expresión::
 

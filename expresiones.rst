@@ -12,13 +12,14 @@ valores **literales** (como ``2``, ``"hola"`` o ``5.7``),
 Por ejemplo,
 la siguiente expresión entrega el valor 10 al ser evaluada::
 
-    4 * 3 - 2
+    >>> 4 * 3 - 2
+    10
 
 El valor de la siguiente expresión
 depende del valor que tiene la variable ``n``
 en el momento de la evaluación::
 
-    n / 7 + 5
+    >>> n / 7 + 5
 
 Una expresión está compuesta de otras expresiones,
 que son evaluadas recursivamente
@@ -27,7 +28,7 @@ que son los literales y las variables.
 
 Por ejemplo, en la expresión::
 
-    b ** 2 - 4 * a * c
+    >>> b ** 2 - 4 * a * c
 
 las subexpresiones que son evaluadas son las siguientes::
 
@@ -117,11 +118,14 @@ Algunos operadores aritméticos binarios son:
 * la **potencia** ``**`` («elevado a»).
 
 Las divisiones y el módulo suelen causar confusión.
-Algunos ejemplos que pueden dejarlos más claro:
+Algunos ejemplos que pueden dejarlos más claro::
 
-* ``17 / 3`` entrega el valor ``5.666666666666667``;
-* ``17 // 3`` entrega el valor ``5``;
-* ``17 % 3`` entrega el valor ``2``.
+    >>> 17 / 3
+    5.666666666666667
+    >>> 17 // 3
+    5
+    >>> 17 % 3
+    2
 
 Una relación entre ``//`` y ``%`` que siempre se cumple es::
 
@@ -135,10 +139,19 @@ hay dos operadores aritméticos unarios:
 * el **positivo** ``+``, y
 * el **negativo** ``-``.
 
+El positivo mantiene el signo de un valor,
+y el negativo lo cambia::
+
+    >>> n = -4
+    >>> +n
+    -4
+    >>> -n
+    4
+
 
 Operadores relacionales
 ~~~~~~~~~~~~~~~~~~~~~~~
-.. index:: operador relacional
+.. index:: operador relacional, comparación
 
 Los **operadores relacionales** son los que permiten comparar valores.
 Sus operandos son cualquier cosa que pueda ser comparada,
@@ -192,7 +205,12 @@ y que las comparaciones se evalúan antes que las operaciones lógicas.
 Operaciones dentro de un mismo nivel
 son evaluadas en el orden en que aparecen en la expresión,
 de izquierda a derecha.  La única excepción son las potencias,
-que se evalúan de derecha a izquierda.
+que son evaluadas de derecha a izquierda::
+
+    >>> 15 * 4 % 7    # es igual a (15 * 4) % 7
+    60
+    >>> 2 ** 3 ** 2   # es igual a 2 ** (3 ** 2)
+    512
 
 Para forzar un orden de evaluación distinto a la regla de precedencia,
 deben usarse paréntesis.
@@ -245,8 +263,15 @@ En el ejemplo,
 ambos casos fueron evaluados
 inmediatamente antes de que su valor sea necesario.
 
+Las reglas completas de precedencia,
+incluyendo otros operadores que aún no hemos visto,
+pueden ser consultados en
+`la sección sobre expresiones`_
+de la documentación oficial de Python.
+
+.. _la sección sobre expresiones: http://docs.python.org/release/3.1.2/reference/expressions.html#summary
+
 Comentarios
 -----------
 .. include:: disqus.rst
-
 

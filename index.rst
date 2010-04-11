@@ -21,7 +21,7 @@ Contenidos
    elementos
    diagramas-de-flujo
    fibonacci
-   pyscripter
+   uso-python
    expresiones
    tipos
 

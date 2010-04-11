@@ -21,13 +21,18 @@ El tipo ``int`` permite representar números enteros.
 
 Los valores que puede tomar un ``int`` son
 todos los números enteros:
-``... -3, -2, -1, 0, 1, 2, 3, ...``.
+... ``-3``, ``-2``, ``-1``, ``0``, ``1``, ``2``, ``3``, ...
 
 El nombre ``int`` viene del inglés *integer*,
 que significa «entero».
 
 Todas las operaciones aritméticas y relacionales
-pueden ser aplicadas sobre valores del tipo ``int``.
+pueden ser aplicadas sobre valores del tipo ``int``::
+
+    >>> 524 + 891
+    1415
+    >>> (1524 // 100) % 10
+    5
 
 Los números enteros literales
 se escriben con un signo opcional
@@ -36,6 +41,24 @@ seguido por una secuencia de dígitos::
     1570
     +4591
     -12
+
+Más adelante veremos otras formas
+de representar enteros literales.
+Por ejemplo, el número 123
+puede ser representado de varias maneras::
+
+    >>> 0o173
+    123
+    >>> 0x7b
+    123
+    >>> 0b1111011
+    123
+    >>> 123 == 0x7b
+    True
+
+Por ahora,
+preocupémonos sólo de la forma más común ``123``.
+
 
 Números reales
 --------------
@@ -52,11 +75,6 @@ los números reales.
 Todas las operaciones aritméticas y relacionales
 pueden ser aplicadas sobre valores del tipo ``float``.
 
-Cuando se combinan valores reales y enteros en una operación,
-el entero es convertido a un número real antes de evaluarla.
-Por ejemplo, ``5.3 + 2`` primero es convertida a ``5.3 + 2.0``
-y luego entrega el valor ``7.3``.
-
 Hay que tener mucho cuidado,
 porque los números reales no se pueden representar
 de manera exacta en un computador.
@@ -66,15 +84,22 @@ es representado internamente por el computador
 con la aproximación 0.69999999999999996.
 Todas las operaciones entre valores ``float``
 son aproximaciones.
+Esto puede conducir a resultados algo sorpresivos::
+
+    >>> 1/7 + 1/7 + 1/7 + 1/7 + 1/7 + 1/7 + 1/7
+    0.9999999999999998
 
 Los números reales literales
 se escriben separando la parte entera de la decimal
 con un punto.
 Si la parte decimal es cero, puede ser omitida::
 
+    >>> 881.9843000
     881.9843
+    >>> -3.14159
     -3.14159
-    1024.
+    >>> 1024.
+    1024.0
 
 .. index:: notación científica
 
@@ -82,22 +107,31 @@ Otra representación es la notación científica,
 en la que se escribe un factor y una potencia de diez
 separados por una letra ``e``.  Por ejemplo::
 
-    6.02e23
+    >>> -2.45E4
+    -24500.0
+    >>> 7e-2
+    0.07
+    >>> 6.02e23
+    6.02e+23
+    >>> 9.1094E-31
     9.1094e-31
-    -2.45E4
 
-Estos valores son iguales, respectivamente, a
-:math:`6.02\times 10^{23}`,
-:math:`9.1094\times 10^{-31}` y
-:math:`-24500.0`.
+Los dos últimos valores del ejemplo
+son iguales, respectivamente, a
+:math:`6.02\times 10^{23}` y
+:math:`9.1094\times 10^{-31}`.
 
-Al combinar valores reales y enteros en una operación,
-los enteros son convertidos a reales
-antes de evaluarla.
-Por ejemplo, la expresión ``2 + 5.1``
-es convertida a ``2.0 + 5.1``,
-y tiene el valor ``7.1``.
+Cuando se combinan valores reales y enteros en una operación,
+el entero es convertido a un número real antes de evaluarla.
+Por ejemplo, ``5.3 + 2`` primero es convertido a ``5.3 + 2.0``,
+y el resultado es real::
 
+    >>> 5.3 + 2
+    7.3
+
+La regla general es:
+si en una expresión aritmética aparece algún ``float``,
+el resultado es de tipo ``float``.
 
 Valores lógicos
 ---------------
@@ -116,12 +150,21 @@ a ``True`` y ``False`` también se les llama
 
 Las operaciones lógicas ``and``, ``or`` y ``not``
 pueden ser aplicadas sobre valores booleanos,
-y entregan como resultado un valor booleano.
+y entregan como resultado un valor booleano::
+
+    >>> not True or (True and False)
+    False
 
 Las operaciones relacionales
 ``<``, ``>``, ``==``, etc.,
 pueden ser aplicadas sobre valores de tipos comparables,
-pero siempre entregan como resultado un valor booleano.
+pero siempre entregan como resultado un valor booleano::
+
+    >>> 2 + 2 == 5
+    False
+    >>> x = 95.4
+    >>> 50 < x < 100
+    True
 
 Texto
 -----
@@ -145,26 +188,29 @@ salvo dos excepciones:
    no representa la suma,
    sino la **concatenación**,
    que significa pegar los strings
-   uno después del otro.
-   Por ejemplo, la expresión ``"hola" + "mundo"``
-   tiene el valor ``"holamundo"``.
+   uno después del otro::
+
+       >>> "hola " + 'mundo'
+       'hola mundo'
 
 2. El operador ``*`` aplicado a un string y a un número entero
    no representa la multiplicación,
    sino la **repetición**,
-   es decir, el string es repetido tantas veces como indica el número.
-   Por ejemplo, la expresión ``'a' * 3``
-   tiene el valor ``'aaa'``.
+   es decir, el string es repetido tantas veces como indica el número::
 
-Las operaciones relacionales permiten comparar strings alfabéticamente.
-Por ejemplo, la siguiente expresión tiene el valor ``True``::
+       >>> "lo" * 5
+       'lololololo'
 
-    "ala" < "alamo" < "bote" < "botero" < "boteros" < "zapato"
+Las operaciones relacionales permiten comparar strings alfabéticamente::
+
+    >>> "ala" < "alamo" < "bote" < "botero" < "boteros" < "zapato"
+    True
 
 Para conocer el largo de un string,
-se utiliza la función ``len()``.
-Por ejemplo, la expresión ``len('universidad')``
-tiene el valor ``11``.
+se utiliza la función ``len()``::
+
+    >>> len('universidad')
+    11
 
 La función ``input()``,
 que usamos para leer la entrada del usuario,
@@ -177,8 +223,17 @@ el siguiente programa tiene
 un error de incompatibilidad de tipos::
 
     n = input('Escriba un número:')
-    doble = 2 * n
-    print('El doble de n es', doble)
+    cuadrado = n * n
+    print('El cuadrado de n es', cuadrado)
+
+Es importante entender que los strings
+no son lo mismo que los valores que en él
+pueden estar representados::
+
+   >>> 5 == '5'
+   False
+   >>> True == 'True'
+   False
 
 Nulo
 ----
@@ -214,7 +269,10 @@ más importantes son las siguientes:
 
 * cuando se utiliza un entero
   en un contexto real,
-  el entero es convertido al real correspondiente;
+  el entero es convertido al real correspondiente::
+
+      >>> 56 * 8.0
+      448.0
 
 * cuando se utiliza cualquier valor
   en un contexto booleano,
@@ -229,7 +287,15 @@ más importantes son las siguientes:
 * cuando se utiliza un valor lógico
   en un contexto entero,
   ``True`` es convertido a ``1``
-  y ``False`` a ``0``.
+  y ``False`` a ``0``::
+
+      >>> True * 4 + False * 8
+      4
+      >>> True + True
+      2
+      >>> n = 5
+      >>> "el número es " + ((n % 2 != 0) * "im") + "par"
+      'el número es impar'
 
 Las conversiones explícitas se realizan
 usando el nombre del tipo de destino
@@ -239,22 +305,28 @@ Por ejemplo,
 para convertir un valor al tipo entero,
 se utiliza la función ``int``::
 
-    int('45')  # entrega el valor 45
-    int('abc') # error
-    int(3.891) # entrega el valor 3
-    int(True)  # entrega el valor 1
-    int(None)  # error
+    >>> int('45')
+    45
+    >>> int(3.891)
+    3
+    >>> int(True)
+    1
+    >>> int(None)
+    TypeError: int() argument must be a string or a number, not 'NoneType'
+    >>> int('abc')
+    ValueError: invalid literal for int() with base 10: 'abc'
+    >>> int('doscientos')
+    ValueError: invalid literal for int() with base 10: 'doscientos'
+
+Ya veremos qué significan los errores.
 
 Para convertir un valor en un string,
 se utiliza la función ``str``::
 
-    str(87)     # entrega el valor '87'
-    str(True)   # entrega el valor 'True'
-
-
-
-
-
+    >>> str(87)
+    '87'
+    >>> str(True)
+    'True'
 
 Comentarios
 -----------

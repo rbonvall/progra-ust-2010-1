@@ -264,8 +264,7 @@ implícitas y explícitas.
 Las conversiones implícitas
 son las que se hacen automáticamente
 según el contexto.
-Las conversiones implícitas
-más importantes son las siguientes:
+Las más importantes son las siguientes:
 
 * cuando se utiliza un entero
   en un contexto real,
@@ -283,6 +282,32 @@ más importantes son las siguientes:
   * el valor ``0``,
   * el string vacío ``''``,
   * ``None``.
+
+  Por ejemplo::
+
+      >>> not 0
+      True
+      >>> not 10
+      False
+      >>> not 'hola'
+      False
+      >>> bool(3.14)
+      True
+
+  Con los operadores ``and`` y ``or``
+  ocurre algo más extraño::
+
+      >>> 4 and 7
+      7
+      >>> 0 and 7
+      0
+      >>> 5 or 6
+      5
+      >>> 0 or 6 or 7
+      6
+
+  **Ejercicio:** deducir cómo funcionan ``and`` y ``or``
+  cuando los operandos no son booleanos.
 
 * cuando se utiliza un valor lógico
   en un contexto entero,

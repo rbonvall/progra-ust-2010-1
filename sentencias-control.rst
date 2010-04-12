@@ -5,7 +5,7 @@ Sentencias de control
 Un programa es una sucesión de **sentencias**
 que son ejecutadas secuencialmente.
 
-Por ejemplo, el siguiente programa tiene tres sentencias::
+Por ejemplo, el siguiente programa tiene cuatro sentencias::
 
     n = int(input('Ingrese n: '))
     m = int(input('Ingrese m: '))
@@ -38,9 +38,37 @@ Un **ciclo** es un conjunto de sentencias
 que son ejecutadas varias veces,
 hasta que una condición de término es satisfecha.
 
+.. index:: indentación
+
 Tanto los condicionales como los ciclos
 contienen a otras sentencias.
+Para indicar esta relación
+se utiliza la **indentación**:
+las sentencias contenidas
+no se escriben en la misma columna
+que la sentencia de control,
+sino un poco más a la derecha::
 
+    n = int(input())
+    m = int(input())
+    if m < n:
+        t = m
+        m = n
+        n = t
+    print(m, n)
+
+En este ejemplo, las tres asignaciones
+están contenidas dentro de la sentencia de control ``if``,
+cuyo significado veremos más abajo.
+El ``print(m, n)`` no está indentado,
+por lo que no es parte de la sentencia ``if``.
+
+Este programa tiene cuatro sentencias,
+una de las cuales es una sentencia de control,
+que contiene otras tres sentencias.
+
+Para indentar,
+utilizaremos siempre cuatro espacios.
 
 
 Condicional if
@@ -77,7 +105,7 @@ Condicional if-else
    :alt: (Diagrama de flujo if-else)
    :align: right
 
-La sentencia **if-then-else**
+La sentencia **if-else**
 («si-o-si-no»)
 decide qué instrucciones ejecutar
 dependiendo si una condición es verdadera o falsa.
@@ -152,16 +180,21 @@ Para ver cómo funciona este programa,
 hagamos un ruteo con la entrada ``m`` = 4
 y ``n`` = 7:
 
-    ===== ===== ===== 
-    ``p`` ``m`` ``n`` 
-    ----- ----- -----
-              4     7
-        0             
-        7     3       
-       14     2
-       21     1
-       28     0
-    ===== ===== ===== 
+  +-------+-------+-------+
+  | ``p`` | ``m`` | ``n`` |
+  +=======+=======+=======+
+  |       |   4   |     7 |
+  +-------+-------+-------+
+  |     0 |       |       |
+  +-------+-------+-------+
+  |     7 |   3   |       |
+  +-------+-------+-------+
+  |    14 |   2   |       |
+  +-------+-------+-------+
+  |    21 |   1   |       |
+  +-------+-------+-------+
+  |    28 |   0   |       |
+  +-------+-------+-------+
 
 En cada iteración,
 el valor de ``m`` decrece en 1.
@@ -176,4 +209,8 @@ sumar ``m`` veces el valor de ``n``.
 Ciclo for
 ---------
 .. index:: for
+
+Continuar y romper ciclos
+-------------------------
+.. index:: break, continue
 

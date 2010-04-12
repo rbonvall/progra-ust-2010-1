@@ -15,7 +15,7 @@ Contenidos
 ----------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    algoritmos
    elementos
@@ -24,6 +24,8 @@ Contenidos
    uso-python
    expresiones
    tipos
+   errores
+   sentencias-control
 
 Cómo instalar Python
 --------------------

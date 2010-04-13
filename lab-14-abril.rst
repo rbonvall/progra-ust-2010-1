@@ -1,5 +1,5 @@
-Laboratorio 7 de abril
-======================
+Laboratorio 14 de abril
+=======================
 En esta sesión de laboratorio se evaluará:
 
 * asignaciones,

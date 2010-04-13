@@ -139,7 +139,5 @@ se puede incluirla en el mensaje::
 
     print('La solución única es', x)
 
-Comentarios
------------
 .. include:: disqus.rst
 

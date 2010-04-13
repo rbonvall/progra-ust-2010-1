@@ -283,7 +283,5 @@ de la documentación oficial de Python.
 
 .. _la sección sobre expresiones: http://docs.python.org/release/3.1.2/reference/expressions.html#summary
 
-Comentarios
------------
 .. include:: disqus.rst
 

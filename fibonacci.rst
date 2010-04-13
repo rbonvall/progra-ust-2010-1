@@ -184,6 +184,4 @@ Tarea
   Por ejemplo, para :math:`m = 17`, el algoritmo debe decir ``no``.
   Para :math:`m = 21`, el algoritmo debe decir ``sí``.
 
-Comentarios
------------
 .. include:: disqus.rst

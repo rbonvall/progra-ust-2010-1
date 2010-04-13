@@ -114,7 +114,5 @@ con números 1 y 2:
    y probar secciones de código.
 
 
-Comentarios
------------
 .. include:: disqus.rst
 

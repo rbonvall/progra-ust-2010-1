@@ -353,7 +353,5 @@ se utiliza la función ``str``::
     >>> str(True)
     'True'
 
-Comentarios
------------
 .. include:: disqus.rst
 

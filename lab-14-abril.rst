@@ -80,7 +80,9 @@ Problema 1: saludo
 
 Por ejemplo,
 si el usuario escribe ``Ricardo``,
-el programa debe entregar el mensaje ``Hola Ricardo``.
+el programa debe imprimir::
+
+    Hola Ricardo
 
 
 Problema 2: promedio
@@ -92,7 +94,9 @@ Problema 2: promedio
 
 Por ejemplo,
 si el usuario ingresa las notas ``6.5``, ``4.1``, ``1.7`` y ``7.0``,
-el programa debe entregar el resultado ``4.825``.
+el programa debe entregar el resultado::
+
+    4.825
 
 
 Problema 3: círculos
@@ -104,8 +108,10 @@ Problema 3: círculos
 
 Por ejemplo,
 si el usuario ingresa el radio ``5.1``,
-el programa debe entregar el perímetro ``32.04422``
-y el área ``81.71276``.
+el programa debe entregar::
+
+    Perimetro: 32.04422
+    Area: 81.71276
 
 
 Problema 4: número invertido
@@ -117,9 +123,12 @@ Problema 4: número invertido
 
 Por ejemplo,
 si el usuario ingresa el número 391,
-el programa debe entregar el 193.
+el programa debe entregar::
 
-Puede usar los operadores ``%`` y ``//``.
+    193
+
+Los operadores ``%`` y ``//``
+son importantes para resolver este ejercicio.
 
 
 Problema 5: parte decimal
@@ -131,7 +140,9 @@ Problema 5: parte decimal
 
 Por ejemplo,
 si el usuario ingresa el número ``14.2857``,
-el programa debe entregar ``0.2857``.
+el programa debe entregar::
+
+    0.2857
 
 Recuerde que la función ``int``
 entrega la parte entera del número.
@@ -142,8 +153,8 @@ Problema 6: años bisiestos
 **Entrada**
     un año.
 **Salida**
-    ``True`` si un año es bisiesto,
-    ``False`` si el año no es bisiesto.
+    ``True``, si el año es bisiesto,
+    ``False``, si el año no es bisiesto.
 
 Los años bisiestos son los divisibles por 4,
 pero con una excepción:
@@ -166,16 +177,20 @@ Problema 7: ordenamiento
 
 Por ejemplo,
 si el usuario ingresa ``13``, ``5`` y ``9``,
-el programa debe entregar ``5``, ``9`` y ``13``.
+el programa debe entregar::
+
+    5
+    9
+    13
 
 Puede utilizar las funciones ``max()`` y ``min()``,
 entregan respectivamente el máximo y el mínimo
 de sus argumentos.  Por ejemplo::
 
-    min(7, 13, 5, 11)
-    max(7, 13, 5, 11)
-
-entregan respectivamente los valores 5 y 13.
+    >>> min(7, 13, 5, 11)
+    5
+    >>> max(7, 13, 5, 11)
+    13
 
 Si no se le ocurre cómo resolver este problema,
 intente primero resolverlo con sólo dos números.

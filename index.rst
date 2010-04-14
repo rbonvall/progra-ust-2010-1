@@ -25,6 +25,7 @@ Contenidos
    expresiones
    tipos
    errores
+   lab-14-abril
    sentencias-control
 
 Cómo instalar Python

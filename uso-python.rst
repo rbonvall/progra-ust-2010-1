@@ -100,18 +100,28 @@ para entender mejor el concepto enseñado.
 
 Uso de PyScripter
 -----------------
-.. image:: _static/pantallazos/pyscripter-nq8.png
-   :alt: (Pantallazo de PyScripter)
+..
+    .. image:: _static/pantallazos/pyscripter-nq8.png
+       :alt: (Pantallazo de PyScripter)
+..
+    El entorno PyScripter tiene dos áreas importantes,
+    que en la imagen de arriba están señaladas
+    con números 1 y 2:
+..
+    1. el **editor**,
+       donde uno escribe los programas;
+    2. el **intérprete interactivo**,
+       donde uno puede evaluar expresiones
+       y probar secciones de código.
 
-El entorno PyScripter tiene dos áreas importantes,
-que en la imagen de arriba están señaladas
-con números 1 y 2:
+El siguiente video explica
+cómo usar el entorno PyScripter
+para escribir y ejecutar
+un programa Python:
 
-1. el **editor**,
-   donde uno escribe los programas;
-2. el **intérprete interactivo**,
-   donde uno puede evaluar expresiones
-   y probar secciones de código.
+.. raw:: html
+
+    <object width="640" height="505"><param name="movie" value="http://www.youtube.com/v/EMLTvVmprJA&hl=es_ES&fs=1&rel=0&hd=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/EMLTvVmprJA&hl=es_ES&fs=1&rel=0&hd=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="505"></embed></object>
 
 
 .. include:: disqus.rst

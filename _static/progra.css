@@ -281,3 +281,10 @@ div.versioninfo {
     line-height: 1.3em;
     font-size: 0.9em;
 }
+
+
+@media print {
+    #disqus_thread {
+        display: none;
+    }
+}

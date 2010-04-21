@@ -3,10 +3,13 @@ Laboratorio 21 de abril
 En esta sesión de laboratorio se evaluará:
 
 * condicionales:
+
   * if,
   * if-else,
   * if-elif-else;
+
 * ciclos:
+
   * while,
   * for usando ``range``.
 
@@ -62,6 +65,7 @@ Problema 2:
     cuatro notas.
 **Salida**:
     la situación del ramo según el promedio final:
+
     * si es menor a 3.0, debe decir ``reprobado``;
     * si está entre 3.0 y 6.0, debe decir ``examen``;
     * se es mayor que 6.0, debe decir ``eximido``.

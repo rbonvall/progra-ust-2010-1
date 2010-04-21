@@ -99,7 +99,7 @@ que aprobó la asignatura::
         print('Felicitaciones')
 
 Condicional if-else
-------------------------
+-------------------
 .. index:: if-else
 .. image:: _static/imagenes/if-else.png
    :alt: (Diagrama de flujo if-else)
@@ -141,6 +141,53 @@ es par o impar::
 La última sentencia no está indentada,
 por lo que no es parte del condicional,
 y será ejecutada siempre.
+
+Condicional if-elif-else
+------------------------
+.. index:: if-elif-else
+
+La sentencia **if-elif-else**
+depende de dos o más condiciones,
+que son evaluadas en orden.
+La primera que es verdadera
+determina qué instrucciones serán ejecutadas.
+
+La sintaxis es la siguiente::
+
+    if condición1:
+        sentencias en el caso 1
+    elif condición2:
+        sentencias en el caso 2
+    ...
+    else:
+        sentencias cuando ninguna condición se cumple
+
+Por ejemplo,
+la tasa de impuesto a pagar por una persona según su sueldo
+puede estar dada por la siguiente tabla:
+
+====================== ====================
+**sueldo**             **tasa de impuesto**
+---------------------- --------------------
+menos de 1000                            %0
+1000 ≤ sueldo < 2000                     %5
+2000 ≤ sueldo < 4000                    %10
+4000 o más                              %12
+====================== ====================
+
+Entonces, el programa que calcula el impuesto a pagar
+es el siguiente::
+
+    sueldo = int(input('Ingrese su sueldo: '))
+    if sueldo < 1000:
+        tasa = 0.00
+    elif sueldo < 2000:
+        tasa = 0.05
+    elif sueldo < 4000:
+        tasa = 0.10
+    else:
+        tasa = 0.12
+    print('Usted debe pagar', tasa * sueldo, 'de impuesto')
 
 Ciclo while
 -----------
@@ -208,9 +255,131 @@ sumar ``m`` veces el valor de ``n``.
 
 Ciclo for
 ---------
-.. index:: for
+.. index:: for, variable de control, iterable
+
+El ciclo **for**
+ejecuta una secuencia de sentencias
+una vez por cada valor posible
+que puede tomar una **variable de control**.
+Los valores van siendo tomados
+de un tipo especial de objeto
+llamado **iterable**.
+
+La sintaxis es la siguiente::
+
+    for variable in iterable:
+        sentencias
+
+La manera de entender un ciclo ``for`` es la siguiente:
+``iterable`` es un objeto que entrega varios valores en orden.
+La ``variable`` toma cada uno de esos valores,
+y las sentencias del ``for`` son ejecutadas
+una vez por cada uno de esos valores.
+
+Existen muchos tipos de iterables,
+pero por ahora sólo vamos a ocupar los más comunes:
+los rangos, los strings y las listas.
+
+.. index:: rango, range
+
+Un **rango** es una sucesión de números enteros equiespaciados.
+Hay tres maneras de definir un rango::
+
+    range(final)
+    range(inicial, final)
+    range(inicial, final, incremento)
+
+El valor inicial siempre es parte del rango.
+El valor final nunca es parte del rango.
+El incremento indica la diferencia entre dos valores consecutivos del rango.
+
+Si el valor inicial es omitido, se supone que es 0.
+Si el incremento es omitido, se supone que es 1.
+
+Con algunos ejemplos quedará más claro:
+
+==================== ===================================
+``range(9)``         0, 1, 2, 3, 4, 5, 6, 7, 8
+``range(3, 13)``     3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+``range(3, 13, 2)``  3, 5, 7, 9, 11
+``range(11, 4)``     ningún valor
+``range(11, 4, -1)`` 11, 10, 9, 8, 7, 6, 5
+==================== ===================================
+
+Por ejemplo,
+el siguiente programa
+calcula la suma de los primeros 20 números naturales::
+
+    suma = 0
+    for i in range(21):
+        suma = suma + i
+    print('La suma de los 20 primeros numeros naturales es', suma)
+
+La sentencia dentro del ciclo ``for`` es ejecutada 21 veces.
+La primera vez, ``i`` tiene el valor 0;
+la segunda, el valor 1;
+y así sucesivamente hasta llegar a 20.
+
+El mismo programa puede ser escrito usando un ``while``,
+pero es un poco más engorroso::
+
+    suma = 0
+    i = 0
+    while i < 21:
+        suma = suma + 1
+        i = i + 1
+    print('La suma de los 20 primeros numeros naturales es', suma)
+
+Una regla general para saber qué ciclo conviene usar es:
+el ``for`` se ocupa cuando se sabe de antemano cuántas iteraciones serán ejecutadas,
+y el ``while`` cuando esto no es conocido.
+
+
+El siguiente programa imprime una cuenta regresiva::
+
+    for i in range(10, 0, -1):
+        print(i)
+    print('¡Feliz año nuevo!')
+
+El iterable de un ``for`` también puede ser un string.
+En este caso,
+los valores que toma la variable de control
+son cada uno de los símbolos que son parte del string.
+
+Por ejemplo,
+el siguiente programa le dice al usuario
+cuántas veces aparece la letra *e* en su nombre::
+
+    nombre = input('Escriba su nombre: ')
+    n = 0
+    for letra in nombre:
+        if letra == 'e' or letra == 'E':
+            n = n + 1
+    print('La letra e aparece', n, 'veces en su nombre')
+
+También es posible usar una lista como iterable.
+Las listas (que veremos en detalle más adelante)
+son representadas entre corchetes,
+con sus valores separados por comas.
+
+Por ejemplo,
+el siguiente programa
+muestra el largo de los nombres de varios animales::
+
+    for animal in ['perro', 'gato', 'vaca', 'hamster']:
+        largo_nombre = len(animal)
+        print(animal, 'tiene largo', largo_nombre)
+
+La salida del programa es::
+
+    perro tiene largo 5
+    gato tiene largo 4
+    vaca tiene largo 4
+    hamster tiene largo 7
 
 Continuar y romper ciclos
 -------------------------
 .. index:: break, continue
 
+
+.. include:: disqus.rst

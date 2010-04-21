@@ -104,7 +104,7 @@ Problema 3: círculos
 **Entrada**:
     el radio de un círculo.
 **Salida**:
-    el perímetros y el área del círculo.
+    el perímetro y el área del círculo.
 
 Por ejemplo,
 si el usuario ingresa el radio ``5.1``,
@@ -129,6 +129,9 @@ el programa debe entregar::
 
 Los operadores ``%`` y ``//``
 son importantes para resolver este ejercicio.
+
+Si no se le ocurre cómo resolver este problema,
+intente primero resolverlo con un número de dos dígitos.
 
 
 Problema 5: parte decimal
@@ -195,3 +198,4 @@ de sus argumentos.  Por ejemplo::
 Si no se le ocurre cómo resolver este problema,
 intente primero resolverlo con sólo dos números.
 
+.. include:: disqus.rst

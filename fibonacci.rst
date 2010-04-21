@@ -152,7 +152,7 @@ usamos el algoritmo tal como lo habíamos diseñado.
 El algoritmo terminado
 ----------------------
 
-.. image:: _static/imagenes/diagrama-flujo-fibonacci.png
+.. image:: _static/imagenes/k-fibonacci.png
    :alt: (Diagrama de flujo del algoritmo de Fibonacci)
 
 Tarea

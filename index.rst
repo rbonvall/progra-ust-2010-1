@@ -27,6 +27,7 @@ Contenidos
    errores
    lab-14-abril
    sentencias-control
+   lab-21-abril
 
 Cómo instalar Python
 --------------------

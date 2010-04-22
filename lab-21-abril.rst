@@ -68,7 +68,7 @@ Problema 2:
 
     * si es menor a 3.0, debe decir ``reprobado``;
     * si está entre 3.0 y 6.0, debe decir ``examen``;
-    * se es mayor que 6.0, debe decir ``eximido``.
+    * si es mayor que 6.0, debe decir ``eximido``.
 
 Por ejemplo,
 si los valores de la entrada son 5.1, 3.8, 1.4 y 4.9,
@@ -152,7 +152,7 @@ la salida debe ser::
 
     21
 
-¡Recuerde su tarea!
+¡Recuerde `su tarea`_!
 
 Problema 7: es Fibonacci
 ------------------------
@@ -173,5 +173,8 @@ la salida debe ser::
 
     si
 
-¡Recuerde su tarea!
+¡Recuerde `su tarea`_!
 
+.. _su tarea: fibonacci.html#el-algoritmo-terminado
+
+.. include:: disqus.rst

@@ -28,6 +28,7 @@ Contenidos
    lab-14-abril
    sentencias-control
    lab-21-abril
+   ejercicios-23-abril
    guia-1
 
 Cómo instalar Python

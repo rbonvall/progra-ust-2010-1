@@ -121,7 +121,6 @@ la salida debe ser::
     20
     22
     23
-    24
 
 Problema 5: dígitos
 -------------------

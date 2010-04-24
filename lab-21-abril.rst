@@ -59,8 +59,8 @@ la salida debe ser::
 
     azul
 
-Problema 2:
------------------
+Problema 2: situación del ramo
+------------------------------
 **Entrada**:
     cuatro notas.
 **Salida**:

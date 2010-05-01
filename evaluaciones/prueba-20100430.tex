@@ -1,0 +1,173 @@
+\documentclass[11pt,spanish]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{fullpage}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{multirow}
+\usepackage{mathpazo}
+\usepackage{courier}
+\usepackage{xcolor}
+\usepackage{textcomp}
+
+\newcommand{\onelinerule}{\rule[2.3ex]{0pt}{0pt}}
+\newcommand{\twolinerule}{\rule[6.2ex]{0pt}{0pt}}
+\newcommand{\respuesta}{\framebox[\textwidth]{\twolinerule}}
+\newcommand{\nombre}{\framebox[0.8\textwidth]{\onelinerule}}
+\renewcommand{\arraystretch}{1.2}
+\newcommand{\fixin}{\lstinline[columns=fixed]}
+\newcommand{\pond}[1]%{{}[#1\%]}
+                     {}
+
+\lstdefinelanguage{py3}{%
+  classoffset=0,%
+    morekeywords={%
+      False,class,finally,is,return,None,continue,for,lambda,try,%
+      True,def,from,nonlocal,while,and,del,global,not,with,%
+      as,elif,if,or,yield,assert,else,import,pass,break,except,in,raise},%
+  classoffset=1,
+    morekeywords={int,float,str,abs,len,input,print,exit,range,min,max},
+    keywordstyle=\color{black!50}\bfseries,%
+  classoffset=0,%
+  sensitive=true,%
+  morecomment=[l]\#,%
+  morestring=[b]',%
+  morestring=[b]",%
+  stringstyle=\em,%
+}
+\lstset{language=py3}
+\lstset{basicstyle=\ttfamily}
+\lstset{columns=fixed}
+\lstset{upquote=true}
+
+\begin{document}
+  \thispagestyle{empty}
+  \pagestyle{empty}
+  {\Large\bfseries Programación---Prueba solemne 1, viernes 30 de abril de 2010}
+
+  Nombre: \nombre
+
+  \begin{enumerate}
+    \item\pond{15}
+      Evalúe las siguentes expresiones.
+      Si la expresión es correcta,
+      indique el \textbf{resultado} y el \textbf{tipo} del resultado.
+      Si la expresión tiene un error,
+      indique el \textbf{tipo de error}.
+
+      \begin{tabular}{|l|l|l|}\hline
+        \textbf{Expresión} &
+            \textbf{Resultado} &
+            \textbf{Tipo} (o \textbf{error}) \\\hline\hline
+        \fixin!2 + 3! &
+            \fixin!5! &
+            \fixin!int! \\\hline
+        \fixin!4 / 0! &
+            &
+            \fixin!ZeroDivisionError! \\\hline\hline
+        \fixin!5 + 3 * 2!                        && \\\hline
+        \fixin!'5' + '3' * 2!                    && \\\hline
+        \fixin!2 ** 10 == 1000 or 2 ** 7 == 100! && \\\hline
+        \fixin!int("cuarenta")!                  && \\\hline
+        \fixin!64/16 + 100/25!                   && \\\hline
+        \fixin!200 + 19%!                         && \\\hline
+        \fixin!3 < (1024 % 10) < 6!              && \\\hline
+        \fixin!'six' * 'eight'!                  && \\\hline
+        \fixin!float(-int('5') + int('10'))!     && \\\hline
+        \fixin!abs(len('ocho') - len('cinco'))!  && \\\hline
+      \end{tabular}
+
+    \item\pond{15}
+      Rutee el siguiente programa
+      con la entrada \lstinline!n = 1024!,
+      y determine qué es lo que hace el programa.
+      En el ruteo, ponga sólo un valor por cada línea.
+
+      \hspace{2em}
+      \begin{minipage}{.4\textwidth}
+        \lstinputlisting[frame=single,numbers=left,numberstyle=\small]{ruteo1.py}
+        \vspace{5ex}
+        ¿Qué hace el programa?
+
+        \framebox[\textwidth]{\rule[12.0ex]{0pt}{0pt}}
+      \end{minipage}
+      \hspace{4em}
+      \begin{minipage}{.5\textwidth}
+        \begin{tabular}{| p{2.5em} || *{4}{p{2.5em} |}}\hline
+          Línea & \lstinline!n! & \lstinline!r! & \lstinline!b! & \lstinline!d! \\\hline\hline
+          \hfill\small 1 & \hfill 1024 & & & \\\hline
+          \hfill\small 2 &&&& \\\hline
+          \hfill\small 3 &&&& \\\hline
+          &&&& \\\hline &&&& \\\hline &&&& \\\hline
+          &&&& \\\hline &&&& \\\hline &&&& \\\hline
+          &&&& \\\hline &&&& \\\hline &&&& \\\hline
+          &&&& \\\hline &&&& \\\hline &&&& \\\hline
+          &&&& \\\hline
+        \end{tabular}
+      \end{minipage}
+
+      \newpage 
+      Nombre: \nombre
+
+      \item\pond{20}
+        Desarrolle un programa cuya entrada sean 
+        tres números enteros \fixin!a!, \fixin!b! y \fixin!c!,
+        y su salida sean los números en orden de menor a mayor.
+
+        Por ejemplo, si la entrada es
+        \fixin!a = 5!, \fixin!b = 1! y \fixin!c = 8!,
+        la salida debe ser: \verb!1 5 8!.
+
+        Recuerde que puede usar las funciones
+        \lstinline+min()+ y \lstinline+max()+.
+
+        \framebox[\textwidth]{\rule[39ex]{0pt}{0pt}}
+
+      \item\pond{25}
+        La media armónica de una secuencia de $n$ números reales
+        $x_1, x_2, \dots, x_n$ se define como:
+        \[
+          H = \frac{n}{
+            \frac{1}{x_1} +
+            \frac{1}{x_2} + \cdots +
+            \frac{1}{x_n}}
+        \]
+        Desarrolle un programa que calcule la media armónica
+        de una secuencia de números.
+
+        El programa primero debe preguntar al usuario
+        cuántos números ingresará.
+        A continuación, pedirá al usuario que ingrese
+        cada uno de los $n$ números reales.
+        Finalmente, el programa mostrará el resultado.
+
+        \framebox[\textwidth]{\rule[39ex]{0pt}{0pt}}
+        
+      \newpage 
+      Nombre: \nombre
+
+      \item\pond{25}
+        El número $e\approx 2.71828$
+        puede ser representado como la siguiente suma infinita:
+        \[
+          e =
+          \frac{1}{0!} +
+          \frac{1}{1!} +
+          \frac{1}{2!} +
+          \frac{1}{3!} +
+          \frac{1}{4!} +
+          \cdots
+        \]
+
+        Desarrolle un programa que entregue un valor aproximado de $e$,
+        calculando esta suma hasta llegar a un sumando
+        que sea menor que $0.0001$.
+
+        Recuerde que el factorial $n!$
+        es el producto de los números de $1$ a $n$.
+
+        
+        \framebox[\textwidth]{\rule[90ex]{0pt}{0pt}}
+  \end{enumerate}
+\end{document}
+

@@ -30,6 +30,8 @@ Contenidos
    lab-21-abril
    ejercicios-23-abril
    guia-1
+   funciones
+   lab-5-mayo
 
 Cómo instalar Python
 --------------------

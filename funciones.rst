@@ -1,0 +1,5 @@
+Funciones
+=========
+
+.. include:: disqus.rst
+

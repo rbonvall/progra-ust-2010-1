@@ -64,8 +64,8 @@ Componentes de una función
 Una función tiene tres partes importantes:
 
 * los **argumentos**,
-  que son los valores que son entregados a la función;
-* el **código de la función**,
+  ue son los valores que son entregados a la función;
+* **código de la función**,
   que son las operaciones que hace la función; y
 * el **valor de retorno**,
   que es el valor final que entrega la función.
@@ -111,7 +111,7 @@ La sentencia ``return producto``
 termina la ejecución de la función
 y entrega como resultado el valor de la expresión.
 
-En general, 
+En general,
 la sintaxis para definir una función es::
 
     def nombre_de_la_función(parámetros):
@@ -123,8 +123,8 @@ que se encarga de calcular el resultado que se desea entregar.
 Una vez que este resultado ya se ha obtenido,
 puede ser retornado con la sentencia ``return``.
 
-Variables locales
------------------
+Variables globales y locales
+----------------------------
 .. index:: variable local
 
 Las variables utilizadas dentro de una función
@@ -146,7 +146,34 @@ no pueden ser usadas afuera de la función::
     Traceback (most recent call last):
     NameError: name 'producto' is not defined
 
+Las variables que no están dentro de una función
+se llaman **variables globales**.
+Uno puede usar el valor de una variable global
+desde una función::
 
+    >>> n = 5
+    >>> def f(x):
+    ...     return n + x
+    ...
+    >>> f(2)
+    7
+    >>> f(3)
+    8
+    >>> n = 1000
+    >>> f(2)
+    1002
+
+Sin embargo,
+no se puede asignar la variable global dentro de la función,
+ya que la asignación crea una variable local::
+
+    >>> n = 5       # global
+    >>> def f(x):
+    ...     n = x   # local
+    ...
+    >>> f(3)
+    >>> n           # global
+    5
 
 .. include:: disqus.rst
 

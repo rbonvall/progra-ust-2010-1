@@ -64,7 +64,7 @@ Componentes de una función
 Una función tiene tres partes importantes:
 
 * los **argumentos**,
-  ue son los valores que son entregados a la función;
+  que son los valores que son entregados a la función;
 * **código de la función**,
   que son las operaciones que hace la función; y
 * el **valor de retorno**,

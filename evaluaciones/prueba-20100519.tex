@@ -1,0 +1,62 @@
+\documentclass[11pt,spanish]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{fullpage}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{multirow}
+\usepackage{mathpazo}
+\usepackage{courier}
+\usepackage{xcolor}
+\usepackage{textcomp}
+
+\newcommand{\onelinerule}{\rule[2.3ex]{0pt}{0pt}}
+\newcommand{\twolinerule}{\rule[6.2ex]{0pt}{0pt}}
+\newcommand{\respuesta}{\framebox[\textwidth]{\twolinerule}}
+\newcommand{\nombre}{\framebox[0.8\textwidth]{\onelinerule}}
+\renewcommand{\arraystretch}{1.2}
+\newcommand{\fixin}{\lstinline[columns=fixed]}
+\newcommand{\pond}[1]%{{}[#1\%]}
+                     {}
+
+\lstdefinelanguage{py3}{%
+  classoffset=0,%
+    morekeywords={%
+      False,class,finally,is,return,None,continue,for,lambda,try,%
+      True,def,from,nonlocal,while,and,del,global,not,with,%
+      as,elif,if,or,yield,assert,else,import,pass,break,except,in,raise},%
+  classoffset=1,
+    morekeywords={int,float,str,abs,len,input,print,exit,range,min,max},
+    keywordstyle=\color{black!50}\bfseries,%
+  classoffset=0,%
+  sensitive=true,%
+  morecomment=[l]\#,%
+  morestring=[b]',%
+  morestring=[b]",%
+  stringstyle=\em,%
+}
+\lstset{language=py3}
+\lstset{basicstyle=\ttfamily}
+\lstset{columns=fixed}
+\lstset{upquote=true}
+
+\begin{document}
+  \thispagestyle{empty}
+  \pagestyle{empty}
+  {\Large\bfseries Programación---Prueba solemne 2, miércoles 19 de mayo de 2010}
+
+  Nombre: \nombre
+
+  \begin{enumerate}
+    \item (Pregunta 1)
+
+      \newpage 
+      Nombre: \nombre
+
+    \item (Pregunta 2)
+
+      \framebox[\textwidth]{\rule[39ex]{0pt}{0pt}}
+
+  \end{enumerate}
+\end{document}
+

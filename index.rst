@@ -11,17 +11,6 @@ Programación, 1er semestre de 2010
 
 :Página del ramo: http://tr.im/progra (redirige aquí)
 
-.. note::
-
-   En la clase del viernes 14 de mayo tomaré el **control 2**.
-   El ejercicio a resolver será parecido al problema 4
-   de la prueba solemne (el de la media armónica).
-   Además, hay que saber la materia sobre funciones.
-
-   Además, ese día debe entregarse la **tarea 2**:
-   hacer un programa que calcule la desviación estándar
-   de :math:`n` números reales.
-
 Contenidos
 ----------
 
@@ -46,6 +35,7 @@ Contenidos
    modulos
    listas
    lab-12-mayo
+   lab-26-mayo
 
 Cómo instalar Python
 --------------------

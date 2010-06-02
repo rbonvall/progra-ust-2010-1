@@ -1,0 +1,5 @@
+Strings
+=======
+
+.. include:: disqus.rst
+

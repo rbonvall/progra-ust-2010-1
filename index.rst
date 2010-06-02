@@ -37,6 +37,10 @@ Contenidos
    lab-12-mayo
    guia-2
    lab-26-mayo
+   strings
+   diccionarios
+   tuplas
+   lab-2-junio
 
 Cómo instalar Python
 --------------------

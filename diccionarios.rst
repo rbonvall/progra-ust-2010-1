@@ -1,0 +1,5 @@
+Diccionarios
+============
+
+.. include:: disqus.rst
+

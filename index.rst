@@ -41,6 +41,8 @@ Contenidos
    diccionarios
    tuplas
    lab-2-junio
+   conjuntos
+   ejercicios-4-junio
 
 Cómo instalar Python
 --------------------

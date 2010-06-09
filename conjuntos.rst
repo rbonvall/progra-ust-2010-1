@@ -126,5 +126,20 @@ Operaciones sobre conjuntos
     >>> a ^ b
     {1, 3, 6, 8}
 
+* ``s < t`` indica si ``s`` es un subconjunto de ``t``::
+
+    >>> {1, 2} < {1, 2, 3}
+    True
+    >>> {1, 4} < {1, 2, 3}
+    False
+
+  ``s <= t`` también indica si ``s`` es subconjunto de ``t``.
+  La diferencia ocurre cuando los conjuntos son iguales::
+
+    >>> {1, 2, 3} < {1, 2, 3}
+    False
+    >>> {1, 2, 3} <= {1, 2, 3}
+    True
+
 .. include:: disqus.rst
 

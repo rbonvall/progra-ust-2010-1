@@ -43,6 +43,7 @@ Contenidos
    lab-2-junio
    conjuntos
    ejercicios-4-junio
+   lab-9-junio
 
 Cómo instalar Python
 --------------------

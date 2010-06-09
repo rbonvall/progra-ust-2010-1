@@ -1,4 +1,4 @@
-\documentclass[10pt,spanish]{article}
+\documentclass[11pt,spanish]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
 \usepackage{fullpage}
@@ -53,47 +53,64 @@
   Nombre: \nombre
 
   \begin{enumerate}
-%    \item
-%      Escriba una función \lstinline+ordenados(L)+
-%      que revise que los elementos de la lista \verb+L+
-%      están ordenados de menor a mayor:
-%      \begin{lstlisting}
-%>>> ordenados([6, 1, 7, 4])
-%False
-%>>> ordenados([1, 4, 6, 7])
-%True
-%      \end{lstlisting}
-%
-%      \framebox[\textwidth]{\rule[20.0ex]{0pt}{0pt}}
-%
     \item
       En el siguiente programa,
       indique cuáles son las variables locales
       y cuáles son las variables globales.
-      \begin{minipage}{5em}
-          \begin{lstlisting}
+
+      \begin{minipage}{14em}
+          \begin{lstlisting}[frame=single]
 a = 6
 b = True
 def f(c):
     d = 3
-    return 19 * d
+    return 19 * c + d
 e = f(a)
 print(e)
           \end{lstlisting}
       \end{minipage}
+      \hspace{4em}
+      \begin{minipage}{20em}
+          Variables locales:
 
-      Variables locales:
+          \framebox[\textwidth]{\rule[5.0ex]{0pt}{0pt}}
 
-      \framebox[\textwidth]{\rule[5.0ex]{0pt}{0pt}}
+          Variables globales:
 
-      Variables globales:
-
-      \framebox[\textwidth]{\rule[5.0ex]{0pt}{0pt}}
+          \framebox[\textwidth]{\rule[5.0ex]{0pt}{0pt}}
+      \end{minipage}
 
     \item
-      Escriba una función \lstinline+producto(valores)+
-      que entregue el producto de los elementos
-      de la lista \lstinline+valores+.
+      Escriba una función \lstinline+mayores_que(x, valores)+,
+      que cuente cuántos valores en la lista \lstinline+valores+
+      son mayores que \lstinline+x+:
+      \begin{lstlisting}
+>>> mayores_que(5, [7, 3, 6, 0, 4, 5, 10])
+3
+>>> mayores_que(2, [-1, 1, 8, 2, 0])
+1
+      \end{lstlisting}
+
+      \framebox[\textwidth]{\rule[20.0ex]{0pt}{0pt}}
+
+    \item
+      Suponga que existe
+      la función \lstinline+es_primo(n)+,
+      que retorna \lstinline+True+
+      si \lstinline+n+ es un número primo,
+      y \lstinline+False+ si no lo es.
+
+      Escriba una función \lstinline+primos(m)+
+      que retorne la lista
+      de los números primos menores que \lstinline+m+:
+      \begin{lstlisting}
+>>> primos(20)
+[2, 3, 5, 7, 11, 13, 17, 19]
+>>> primos(11)
+[2, 3, 5, 7]
+      \end{lstlisting}
+
+      \framebox[\textwidth]{\rule[20.0ex]{0pt}{0pt}}
 
     \newpage
     \item
@@ -109,8 +126,7 @@ print(e)
       \end{tabular}
 
       En un programa,
-      esta información puede ser representada
-      usando listas:
+      esta información puede ser representada usando listas:
       \begin{lstlisting}
 >>> alumnos = ['Pepito', 'Yayita', 'Fulanita', 'Panchito']
 >>> asistencia = [
@@ -137,7 +153,7 @@ print(e)
 'Fulanita'
           \end{lstlisting}
       \end{enumerate}
-      \framebox[\textwidth]{\rule[55.0ex]{0pt}{0pt}}
+      \framebox[\textwidth]{\rule[50.0ex]{0pt}{0pt}}
 
   \end{enumerate}
 \end{document}

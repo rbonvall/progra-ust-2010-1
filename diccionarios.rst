@@ -121,8 +121,8 @@ También es posible crear listas de llaves o valores::
     >>> 'gusano' in patas
     False
 
-  Para saber si una llave *no* está en el diccionario,
-  se puede usar ``not in``::
+Para saber si una llave *no* está en el diccionario,
+se puede usar ``not in``::
 
     >>> 'gusano' not in patas
     True

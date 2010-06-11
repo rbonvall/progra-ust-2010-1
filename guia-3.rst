@@ -16,6 +16,30 @@ que están repetidas::
     ['cero']
     >>> palabras_repetidas('El sobre está sobre el mueble')
     ['el', 'sobre']
+    >>> palabras_repetidas('Ay, ahí no hay pan')
+    []
+
+Iguales o distintos
+-------------------
+Escriba una función ``todos_iguales(lista)``
+que indique si todos los elementos de una lista son iguales::
+
+    >>> todos_iguales([6, 6, 6])
+    True
+    >>> todos_iguales([6, 6, 1])
+    False
+    >>> todos_iguales([0, 90, 1])
+    False
+
+A continuación, escriba una función ``todos_distintos(lista)``
+que indique si todos los elementos de una lista son distintos::
+
+    >>> todos_distintos([6, 6, 6])
+    False
+    >>> todos_distintos([6, 6, 1])
+    False
+    >>> todos_distintos([0, 90, 1])
+    True
 
 Póker
 -----
@@ -91,6 +115,7 @@ si la mano es una escalera::
     >>> escalera(mano_2)
     False
 
+(ya vendrán más problemas)
 
 .. include:: disqus.rst
 

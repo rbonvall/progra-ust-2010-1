@@ -1,0 +1,64 @@
+\documentclass[10pt,spanish]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{fullpage}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{multirow}
+\usepackage{mathpazo}
+\usepackage{courier}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{pifont}
+\usepackage{tikz}
+
+\newcommand{\onelinerule}{\rule[2.3ex]{0pt}{0pt}}
+\newcommand{\twolinerule}{\rule[6.2ex]{0pt}{0pt}}
+\newcommand{\respuesta}{\framebox[\textwidth]{\twolinerule}}
+\newcommand{\nombre}{\framebox[0.8\textwidth]{\onelinerule}}
+\renewcommand{\arraystretch}{1.2}
+\newcommand{\fixin}{\lstinline[columns=fixed]}
+
+\lstdefinelanguage{py3}{%
+  classoffset=0,%
+    morekeywords={%
+      False,class,finally,is,return,None,continue,for,lambda,try,%
+      True,def,from,nonlocal,while,and,del,global,not,with,%
+      as,elif,if,or,yield,assert,else,import,pass,break,except,in,raise},%
+    keywordstyle=\color{black!80}\bfseries,%
+  classoffset=1,
+    morekeywords={int,float,str,abs,len,input,print,exit,range,min,max,%
+      set,dict,tuple,list},
+    keywordstyle=\color{black!50}\bfseries,%
+  classoffset=0,%
+  sensitive=true,%
+  morecomment=[l]\#,%
+  morestring=[b]',%
+  morestring=[b]",%
+  stringstyle=\em,%
+}
+\lstset{language=py3}
+\lstset{basicstyle=\ttfamily}
+\lstset{columns=fixed}
+\lstset{upquote=true}
+\lstset{upquote=true}
+\lstset{showstringspaces=false}
+
+\begin{document}
+  \thispagestyle{empty}
+  {\Large\bfseries Programación---Control 3, viernes 11 de junio de 2010}
+
+  Nombre: \nombre
+  \vspace{0.7em}
+
+  \foreach \x in {1,2,...,15} {
+    \noindent
+    \begin{minipage}[b]{15.5em}
+      \lstinputlisting{c3-p\x.py}
+      \framebox[14em]{\rule[10ex]{0pt}{0pt}}
+      \vspace{0.7em}
+    \end{minipage}
+  }
+
+\end{document}
+

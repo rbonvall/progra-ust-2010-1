@@ -45,17 +45,17 @@ Póker
 -----
 En los juegos de naipes,
 una carta tiene dos atributos:
-un valor (A, 2, 3, ..., J, Q, K)
+un valor (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K)
 y una pinta (♥, ♦, ♣, ♠).
 
 En un programa,
 el valor puede ser representado como un número
 del 1 al 13,
 y la pinta como un string:
-``'C'`` es ♥,
-``'D'`` es ♦,
-``'T'`` es ♣, y
-``'P'`` es ♠.
+♥ → ``'C'``,
+♦ → ``'D'``,
+♣ → ``'T'`` y
+♠ → ``'P'``.
 
 Una carta puede ser representada
 como una tupla de dos elementos:
@@ -68,6 +68,7 @@ Para simplificar,
 se puede representar el as como un 1,
 y los «monos» J, Q y K como 11, 12 y 13::
 
+    # as de picas y reina de corazones
     carta3 = (1, 'P')
     carta4 = (12, 'C')
 
@@ -109,13 +110,12 @@ Escriba una función que indique
 si la mano es una escalera::
 
     >>> mano_1 = {(4, 'P'), (7, 'C'), (3, 'C'), (6, 'T'), (5, 'T')}
-    >>> mano_1 = {(12, 'T'), (7, 'C'), (3, 'C'), (12, 'C'), (5, 'T')}
+    >>> mano_2 = {(12, 'T'), (7, 'C'), (3, 'C'), (12, 'C'), (5, 'T')}
     >>> escalera(mano_1)
     True
     >>> escalera(mano_2)
     False
 
-(ya vendrán más problemas)
 
 .. include:: disqus.rst
 

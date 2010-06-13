@@ -5,6 +5,14 @@ Estos ejercicios serán su preparación
 para la prueba solemne 3
 del viernes 18 de junio.
 
+Para repasar los conceptos,
+puede `descargar el control 3`_
+tomado en la clase del viernes 11 de junio.
+Les recomiendo que lo resuelvan nuevamente
+para tener claro en qué se equivocaron.
+
+.. _descargar el control 3: _static/control-3.pdf
+
 Palabras repetidas
 ------------------
 Escriba una función ``palabras_repetidas(oracion)``

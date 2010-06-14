@@ -235,7 +235,7 @@ que cuente cuántos partidos del campeonato
 terminaron en empate::
 
     >>> nro_empates(campeonato)
-    1
+    2
 
 **Ejercicio 3:**
 cuando un equipo gana un partido, recibe 3 puntos;

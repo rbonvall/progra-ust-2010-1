@@ -1,0 +1,211 @@
+\documentclass[10pt,spanish]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{fullpage}
+\usepackage{listings}
+\usepackage{mathpazo}
+\usepackage{courier}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{tikz}
+
+\newcommand{\onelinerule}{\rule[2.3ex]{0pt}{0pt}}
+\newcommand{\twolinerule}{\rule[6.2ex]{0pt}{0pt}}
+\newcommand{\respuesta}{\framebox[\textwidth]{\twolinerule}}
+\newcommand{\nombre}{\framebox[0.8\textwidth]{\onelinerule}}
+%\renewcommand{\arraystretch}{1.2}
+\newcommand{\cv}{\texttt}
+
+\newcommand{\card}[3]{%
+  \draw #1 rectangle +(2, 4);
+  %\draw +(0.5, 3.5) node {#2};
+  %\draw +(0.5, 2.6) node {\ensuremath{#3}};
+  \draw +(-1.5, -0.5) node {#2};
+  \draw +(0.5, 2.6) node {\ensuremath{#3}};
+}
+
+\lstdefinelanguage{py3}{%
+  classoffset=0,%
+    morekeywords={%
+      False,class,finally,is,return,None,continue,for,lambda,try,%
+      True,def,from,nonlocal,while,and,del,global,not,with,%
+      as,elif,if,or,yield,assert,else,import,pass,break,except,in,raise},%
+    keywordstyle=\color{black!80}\bfseries,%
+  classoffset=1,
+    morekeywords={int,float,str,abs,len,input,print,exit,range,min,max,%
+      set,dict,tuple,list},
+    keywordstyle=\color{black!50}\bfseries,%
+  classoffset=0,%
+  sensitive=true,%
+  morecomment=[l]\#,%
+  morestring=[b]',%
+  morestring=[b]",%
+  stringstyle=\em,%
+}
+\lstset{language=py3}
+\lstset{basicstyle=\ttfamily}
+\lstset{columns=fixed}
+\lstset{upquote=true}
+\lstset{upquote=true}
+\lstset{showstringspaces=false}
+
+\begin{document}
+  \thispagestyle{empty}
+  \pagestyle{empty}
+  {\Large\bfseries Programación---Prueba solemne 3, viernes 18 de junio de 2010}
+
+  Nombre: \nombre
+
+  \begin{enumerate}
+    \item
+      Escriba la salida de cada programa.
+
+      \foreach \x in {1,2,...,6} {
+        \noindent
+        \begin{minipage}[b]{15.5em}
+          \lstinputlisting{c3-p\x.py}
+          \framebox[14em]{\rule[10ex]{0pt}{0pt}}
+          \vspace{0.7em}
+        \end{minipage}
+      }
+
+    \item
+      Escriba una función \lstinline!contar_iniciales(oracion)!
+      que retorne un diccionario cuyas llaves sean letras,
+      y que el valor asociado indique
+      cuántas palabras de la oración comienzan con la letra:
+          \begin{lstlisting}
+>>> contar_iniciales('El elefante avanza hacia Asia')
+{'e': 2, 'h': 1, 'a': 2}
+>>> contar_iniciales('Varias vacas vuelan sobre Venezuela')
+{'s': 1', 'v': 4}
+          \end{lstlisting}
+      
+      \framebox[\textwidth]{\rule[40.0ex]{0pt}{0pt}}
+
+    \newpage
+    \item
+      Las palabras \emph{panvocálicas}
+      son las que tienen las cinco vocales.
+      Por ejemplo:
+      c\underline{e}ntr\underline{i}f\underline{u}g\underline{a}d\underline{o},
+      b\underline{i}s\underline{a}b\underline{u}\underline{e}l\underline{o},
+      h\underline{i}p\underline{o}t\underline{e}n\underline{u}s\underline{a}.
+
+      \begin{enumerate}
+
+        \item
+          Escriba una función \lstinline!es_panvocalica(palabra)!
+          que indique si una palabra es panvocálica o no:
+          \begin{lstlisting}
+>>> es_panvocalica('educativo')
+True
+>>> es_panvocalica('pedagogico')
+False
+          \end{lstlisting}
+
+          \framebox[0.9\textwidth]{\rule[35.0ex]{0pt}{0pt}}
+          \vspace{1em}
+
+        \item
+          Escriba una función \lstinline!cuenta_pv(oracion)!
+          que cuente cuántas palabras panvocálicas tiene una oración:
+          \begin{lstlisting}
+>>> cuenta_pv('el abuelito mordisquea el aceituno con contundencia')
+4
+>>> cuenta_pv('la cincuentona estudiosa va a casa')
+2
+>>> cuenta_pv('los hipopotamos bailan al amanecer')
+0
+          \end{lstlisting}
+
+          \framebox[0.9\textwidth]{\rule[35.0ex]{0pt}{0pt}}
+
+      \end{enumerate}
+
+
+    \newpage
+    \item
+      En los juegos de naipes, una carta tiene dos atributos:
+      un valor (\cv{A}, \cv{2}, \cv{3}, \cv{4}, \cv{5}, \cv{6}, \cv{7}, \cv{8},
+                \cv{9}, \cv{10}, \cv{J}, \cv{Q} o \cv{K})
+      y una pinta (\(\heartsuit\), \(\spadesuit\), \(\diamondsuit\) o \(\clubsuit\)).
+
+      En un programa,
+      una carta puede ser representada como una tupla de dos elementos:
+      el valor y la pinta.
+      El valor es un número del 1 al 13,
+      y la pinta es un string
+      (\lstinline!'C'!, \lstinline!'P'!, \lstinline!'D'! o \lstinline!'T'!).
+
+      Una mano puede ser representada como un conjunto de cartas.
+      Por ejemplo, uno puede representar la mano
+      \fbox{\cv{5}\(\clubsuit\)}
+      \fbox{\cv{2}\(\heartsuit\)}
+      \fbox{\cv{1}\(\spadesuit\)}
+      \fbox{\cv{Q}\(\heartsuit\)}
+      \fbox{\cv{K}\(\clubsuit\)}
+      de la siguiente manera:
+      \begin{lstlisting}
+mano = {(5, 'T'), (2, 'C'), (1, 'P'), (12, 'C'), (13, 'T')}
+      \end{lstlisting}
+
+      En el carioca (un juego de naipes chileno)
+      una \emph{escala} es una mano de cuatro cartas
+      que tienen la misma pinta y que tienen valores consecutivos.
+      Por ejemplo:
+      \begin{itemize}
+        \item
+          \fbox{\cv{3}\(\heartsuit\)}
+          \fbox{\cv{6}\(\heartsuit\)}
+          \fbox{\cv{5}\(\heartsuit\)}
+          \fbox{\cv{4}\(\heartsuit\)}
+          es una escala, ya que todas las cartas tienen pinta \(\heartsuit\)
+          y valores consecutivos desde el~\cv{3} hasta el~\cv{6}.
+
+        \item
+          \fbox{\cv{3}\(\clubsuit\)}
+          \fbox{\cv{6}\(\diamondsuit\)}
+          \fbox{\cv{5}\(\diamondsuit\)}
+          \fbox{\cv{4}\(\heartsuit\)}
+          no es una escala, ya que las cartas tienen pintas diferentes.
+
+        \item
+          \fbox{\cv{3}\(\clubsuit\)}
+          \fbox{\cv{A}\(\clubsuit\)}
+          \fbox{\cv{J}\(\clubsuit\)}
+          \fbox{\cv{5}\(\clubsuit\)}
+          no es una escala, ya que los valores no son consecutivos.
+
+        \item
+          \fbox{\cv{3}\(\spadesuit\)}
+          \fbox{\cv{4}\(\spadesuit\)}
+          \fbox{\cv{5}\(\spadesuit\)}
+          no es una escala, ya que la mano no tiene cuatro cartas.
+      \end{itemize}
+
+      Escriba una función \lstinline!es_escala(mano)!
+      que indique si la mano es una escala o no:
+      \begin{lstlisting}
+>>> es_escala({(3, 'C'), (6, 'C'), (5, 'C'), (4, 'C')})
+True
+>>> es_escala({(3, 'T'), (6, 'D'), (5, 'D'), (4, 'C')})
+False
+>>> es_escala({(3, 'T'), (1, 'T'), (11, 'T'), (5, 'T'))
+False
+>>> es_escala({(3, 'C'), (4, 'C'), (5, 'C')})
+False
+      \end{lstlisting}
+
+      \framebox[\textwidth]{\rule[50.0ex]{0pt}{0pt}}
+
+
+
+
+
+
+
+  \end{enumerate}
+\end{document}
+

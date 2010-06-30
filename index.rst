@@ -46,6 +46,7 @@ Contenidos
    lab-9-junio
    ejercicios-11-junio
    guia-3
+   lab-30-junio
 
 Cómo instalar Python
 --------------------

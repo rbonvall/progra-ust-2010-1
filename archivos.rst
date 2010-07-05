@@ -194,5 +194,162 @@ usado en el ejemplo anterior::
 Cada llamada a ``print`` agrega automáticamente
 el salto de línea al final.
 
+Archivos de registros
+---------------------
+Una manera de usar archivos
+es para almacenar una secuencia de filas
+compuestas por varios datos.
+A esto se le llama **archivo de registros**,
+y es similar a guardar una tabla de datos.
+
+La manera de hacerlo es
+asociando cada fila de la tabla a una línea del archivo,
+y usando un símbolo delimitador para separar los datos.
+
+Por ejemplo,
+supongamos que queremos guardar en un archivo
+los datos de esta tabla:
+
+    =========== =========== ======= ======= ======= =======
+    Nombre      Apellido    Nota 1  Nota 2  Nota 3  Nota 4
+    ----------- ----------- ------- ------- ------- -------
+    Perico      Los Palotes 2,1     3,4     5,5     6,4
+    Yayita      Vinagre     4,0     4,0     4,1     3,7
+    Marcelo     Bielsa      6,1     6,7     7,0     3,0
+    ...         ...         ...     ...     ...     ...
+    =========== =========== ======= ======= ======= =======
+
+Si usamos el símbolo ``:`` como delimitador,
+el archivo, que llamaremos ``alumnos.txt`` queda así::
+
+    Perico:Los Palotes:2.1:3.4:5.5:6.4
+    Yayita:Vinagre:4.0:4.0:4.1:3.7
+    Marcelo:Bielsa:6.1:6.7:7.0:3.0
+
+Para leer los datos del archivo,
+hay que hacerlo línea por línea,
+tal como lo hacíamos antes.
+Al leer cada línea, obtenemos un string.
+Por ejemplo,
+al leer la primera línea,
+lo que tenemos es::
+
+    'Perico:Los Palotes:2.1:3.4:5.5:6.4\n'
+
+Para poder usar los datos,
+hay que descomponer los elementos del string
+(usando ``.strip(delimitador)``)
+y convertirlos al tipo apropiado.
+La manera de leer el archivo ``alumnos.txt``
+es la siguiente::
+
+    archivo_alumnos = open('alumnos.txt')
+    for linea in archivo_alumnos:
+        linea = linea.strip()
+        l = linea.split(':')
+        nombre = l[0]
+        apellido = l[1]
+        nota1 = float(l[2])
+        nota2 = float(l[3])
+        nota3 = float(l[4])
+        nota4 = float(l[5])
+
+        # hacer algo con los datos
+
+    archivo_alumnos.close()
+
+Es lo mismo que hacíamos antes,
+pero con un poco más de burocracia:
+antes de usar los datos,
+hay que extraerlos de la línea leída,
+que es un string.
+
+Una manera más corta de hacer lo mismo
+es ésta::
+
+    archivo_alumnos = open('alumnos.txt')
+    for linea in archivo_alumnos:
+        l = linea.strip().split(':')
+        nombre, apellido = l[0:2]
+        n1, n2, n3, n4 = map(float, l[2:6])
+
+        # hacer algo
+
+    archivo_alumnos.close()
+
+(Recordar que ``l[i:j]`` es una rebanada de la lista ``l``
+desde el elemento ``i`` hasta el ``j``, sin incluir el último,
+y que ``map(f, lst)`` aplica la función ``f``
+a cada elemento de la lista ``lst``).
+
+Por ejemplo,
+si queremos imprimir el promedio de cada alumno,
+se hace así::
+
+    archivo_alumnos = open('alumnos.txt')
+    for linea in archivo_alumnos:
+        l = linea.strip().split(':')
+        nombre, apellido = l[0:2]
+        n1, n2, n3, n4 = map(float, l[2:6])
+        promedio = (n1 + n2 + n3 + n4) / 4
+        print(nombre, 'obtuvo promedio', promedio)
+    archivo_alumnos.close()
+
+Si queremos escribir los datos en un archivo de registro,
+hay que crear manualmente la línea,
+convirtiendo los datos a strings
+y pegándolos con el delimitador.
+
+Por ejemplo,
+si queremos leer los datos del archivo de alumnos,
+y crear un nuevo archivo ``promedios.txt``
+que tenga sólo los promedios,
+habría que hacerlo de la siguiente manera::
+
+    archivo_alumnos = open('alumnos.txt')
+    archivo_promedios = open('promedios.txt', 'w')
+    for linea in archivo_alumnos:
+        # extraer los datos
+        l = linea.strip().split(':')
+        nombre, apellido = l[0:2]
+        n1, n2, n3, n4 = map(float, l[2:6])
+
+        # calcular el promedio
+        promedio = (n1 + n2 + n3 + n4) / 4
+
+        # crear la línea para escribirla
+        # en el archivo de promedios
+        linea = nombre + ':' + apellido + ':' + str(promedio)
+
+        # escribir la línea en el nuevo archivo
+        print(linea, file=archivo_promedios)
+
+    archivo_alumnos.close()
+    archivo_promedios.close()
+
+Tarea
+~~~~~
+Para cada alumno en el archivo ``alumnos.txt``,
+crear un archivo llamado ``nombre-apellido.txt``
+que sea una carta para el alumno
+con el siguiente contenido:
+
+.. code-block:: none
+
+    Estimado [nombre],
+    usted ha [aprobado/reprobado]
+    con promedio [p].
+
+Por ejemplo,
+la carta para Marcelo Bielsa
+se llamará ``marcelo-bielsa.txt``
+y su contenido será:
+
+.. code-block:: none
+
+    Estimado Marcelo,
+    usted ha aprobado
+    con promedio 5.7.
+
 .. include:: disqus.rst
 

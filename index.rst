@@ -48,6 +48,7 @@ Contenidos
    guia-3
    lab-30-junio
    archivos
+   guia-4
 
 Cómo instalar Python
 --------------------

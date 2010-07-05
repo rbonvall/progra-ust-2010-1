@@ -166,7 +166,33 @@ usando el ciclo for.
 
 Escritura de archivos
 ---------------------
-(por redactar)
+Para escribir datos en un archivo,
+hay que abrirlo de la siguiente manera::
+
+    archivo = open(nombre, 'w')
+
+El segundo parámetro indica el uso que se le dará al archivo.
+``'w'`` significa "escribir" (*write* en inglés).
+
+Una vez abierto el archivo,
+se puede escribir una línea de texto en él
+usando la función ``print``,
+indicando el archivo como un parámetro especial
+llamado ``file`` ("archivo" en inglés).
+
+Por ejemplo,
+este programa crea el archivo
+usado en el ejemplo anterior::
+
+    a = open('himno.txt', 'w')
+    print('Puro Chile', file=a)
+    print('es tu cielo azulado', file=a)
+    print('puras brisas', file=a)
+    print('te cruzan también.', file=a)
+    a.close()
+
+Cada llamada a ``print`` agrega automáticamente
+el salto de línea al final.
 
 .. include:: disqus.rst
 

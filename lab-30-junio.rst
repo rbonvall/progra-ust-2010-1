@@ -28,17 +28,60 @@ hay que cerrarlo::
     archivo.close()
 
 Para los siguientes ejercicios,
-descarge el archivo juegos.txt_,
-que tiene la información de los números jugados
-en cartones del Loto.
+descarge el archivo juegos.txt_.
+Este archivo tiene una lista
+de todos los cartones jugados para un sorteo de Loto.
+Cada línea del archivo tiene la lista de números
+jugados en un cartón.
 
 .. _juegos.txt: _static/juegos.txt
+
+Este archivo se puede abrir con el Bloc de Notas (Notepad)
+para ver su contenido,
+pero para resolver los problemas,
+hay que escribir funciones que analicen los datos.
+
+Todas las funciones deben hacer lo siguiente:
+
+* abrir el archivo con ``archivo = open('juegos.txt')``;
+* leer los datos y analizarlos,
+* cerrar el archivo con ``archivo.close()``.
+
+Como cada línea del archivo es un string,
+hay que convertirlo a un conjunto de números
+para poder analizarlos, de la siguiente manera::
+
+    numeros_carton = set()
+    for n in linea.split():
+        numeros_carton.add(int(n))
+
+Aunque como vimos la clase pasada,
+esto también se puede hacer así::
+
+    numeros_carton = set(map(int, linea.split()))
+
+Al final del laboratorio,
+enviar el archivo con las funciones
+a ``roberto.bonvallet@usm.cl``.
 
 Ejercicio 1
 -----------
 ¿Cuántos cartones de Loto fueron jugados?
 
+(Para responder la pregunta,
+escriba una función ``contar_cartones``
+que cuente los cartones del archivo).
+
 Ejercicio 2
+-----------
+De todos los cartones jugados,
+¿cuántos tienen el número 7?
+
+(Para responder la pregunta,
+escriba una función ``contar_numero_en_cartones(n)``
+que cuente cuántos cartones tienen el número ``n``).
+
+Ejercicio 3
 -----------
 Escriba una función ``hay_ganadores(numeros)``,
 donde ``numeros`` es el conjunto de los seis números de un sorteo,
@@ -49,7 +92,7 @@ que indique si alguien se ganó el Loto::
     >>> hay_ganadores({14, 21, 1, 36, 9, 17})
     False
 
-Ejercicio 3
+Ejercicio 4
 -----------
 Escriba una función ``n_aciertos(numeros, n)``,
 que indique cuántas personas tuvieron ``n`` aciertos,

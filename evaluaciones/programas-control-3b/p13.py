@@ -1,0 +1,5 @@
+a = set()
+a.add(6)
+a.add(3)
+a.add(-1)
+print(a[0])

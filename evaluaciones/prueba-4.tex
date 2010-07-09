@@ -1,0 +1,148 @@
+\documentclass[10pt,spanish]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{fullpage}
+\usepackage{listings}
+\usepackage{mathpazo}
+\usepackage{courier}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{tikz}
+
+\newcommand{\onelinerule}{\rule[2.3ex]{0pt}{0pt}}
+\newcommand{\twolinerule}{\rule[6.2ex]{0pt}{0pt}}
+\newcommand{\respuesta}{\framebox[\textwidth]{\twolinerule}}
+\newcommand{\nombre}{\framebox[0.8\textwidth]{\onelinerule}}
+%\renewcommand{\arraystretch}{1.2}
+\newcommand{\cv}{\texttt}
+
+\newcommand{\card}[3]{%
+  \draw #1 rectangle +(2, 4);
+  %\draw +(0.5, 3.5) node {#2};
+  %\draw +(0.5, 2.6) node {\ensuremath{#3}};
+  \draw +(-1.5, -0.5) node {#2};
+  \draw +(0.5, 2.6) node {\ensuremath{#3}};
+}
+
+\lstdefinelanguage{py3}{%
+  classoffset=0,%
+    morekeywords={%
+      False,class,finally,is,return,None,continue,for,lambda,try,%
+      True,def,from,nonlocal,while,and,del,global,not,with,%
+      as,elif,if,or,yield,assert,else,import,pass,break,except,in,raise},%
+    keywordstyle=\color{black!80}\bfseries,%
+  classoffset=1,
+    morekeywords={int,float,str,abs,len,input,print,exit,range,min,max,%
+      set,dict,tuple,list},
+    keywordstyle=\color{black!50}\bfseries,%
+  classoffset=0,%
+  sensitive=true,%
+  morecomment=[l]\#,%
+  morestring=[b]',%
+  morestring=[b]",%
+  stringstyle=\em,%
+}
+\lstset{language=py3}
+\lstset{basicstyle=\ttfamily}
+\lstset{columns=fixed}
+\lstset{upquote=true}
+\lstset{upquote=true}
+\lstset{showstringspaces=false}
+\listfiles
+
+\begin{document}
+  \thispagestyle{empty}
+  \pagestyle{empty}
+  {\Large\bfseries Programación---Prueba solemne 4, viernes 9 de julio de 2010}
+
+  Nombre: \nombre
+
+  \vspace{3ex}
+  \begin{minipage}[t]{.6\textwidth}
+    Un supermercado tiene la información de sus productos
+    en un archivo llamado~\texttt{productos.txt}.
+    Cada línea del archivo tiene tres datos:
+    \begin{itemize}
+      \item el código del producto (un número entero),
+      \item el nombre del producto, y
+      \item el precio del producto.
+    \end{itemize}
+  Los datos están separados por una coma (``\texttt{,}'').
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{.3\textwidth}
+    \texttt{productos.txt}:
+    \begin{lstlisting}[language={},frame=single]
+1265,Reloj,5000
+613,Cuaderno,900
+9801,Vuvuzela,15000
+321,Lapiz,400
+5413,Martillo,3000
+857,Paleta,6000
+612,Pizza,1200
+    \end{lstlisting}
+  \end{minipage}
+
+  \begin{enumerate}
+    \item Escriba una función \lstinline!existe_producto(codigo)!
+      que indique si existe en el archivo
+      el producto con el código dado:
+      \begin{lstlisting}
+>>> existe_producto(321)
+True
+>>> existe_producto(512)
+False
+      \end{lstlisting}
+
+    \item Escriba una función \lstinline!cuenta_menores_que(precio_maximo)!
+      que entregue la cantidad de productos
+      cuyo precio es menor que \lstinline!precio_maximo!:
+      \begin{lstlisting}
+>>> cuenta_menores_que(1000)
+2
+>>> cuenta_menores_que(7500)
+6
+>>> cuenta_menores_que(300)
+0
+      \end{lstlisting}
+      \newpage
+
+    \item
+      \begin{minipage}[t]{.6\textwidth}
+        A partir del archivo \texttt{productos.txt},
+        escriba un programa que cree un nuevo archivo
+        llamado \texttt{nombres.txt},
+        que tenga sólo los nombres de los productos.
+
+        \vspace{45ex}
+      \end{minipage}
+      \hfill
+      \begin{minipage}[t]{.3\textwidth}
+        \texttt{nombres.txt}:
+        \begin{lstlisting}[language={},frame=single]
+Reloj
+Cuaderno
+Vuvuzela
+Lapiz
+Martillo
+Paleta
+Pizza
+        \end{lstlisting}
+      \end{minipage}
+
+    \item
+      Escriba la salida de cada programa.
+
+      \foreach \x in {1,2,3,4} {
+        \noindent
+        \begin{minipage}[b]{22.5em}
+          \lstinputlisting{programas-prueba-4/p\x.py}
+          \framebox[22em]{\rule[15ex]{0pt}{0pt}}
+          \vspace{0.7em}
+        \end{minipage}
+      }
+
+  \end{enumerate}
+\end{document}
+

@@ -64,16 +64,6 @@ simplemente haciendo clic en «siguiente» en cada paso.
 .. _PyScripter: http://pyscripter.googlecode.com/files/PyScripter-v1.9.9.7-Setup.exe
 
 
-Planificación semestral
------------------------
-
-.. raw:: html
-
-   <iframe src="http://spreadsheets.google.com/pub?key=t9x7R4HcQvGezKpDR69lCCQ&chrome=false&single=true&gid=0&output=html&widget=true"
-      width="600"
-      height="300"
-      frameborder="0"></iframe>
-
 Calendario
 ----------
 .. include:: calendario.rst

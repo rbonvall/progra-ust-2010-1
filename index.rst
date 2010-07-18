@@ -49,6 +49,7 @@ Contenidos
    lab-30-junio
    archivos
    guia-4
+   evaluaciones
 
 Cómo instalar Python
 --------------------
@@ -62,9 +63,4 @@ simplemente haciendo clic en «siguiente» en cada paso.
 
 .. _intérprete de Python: http://www.python.org/ftp/python/3.1.2/python-3.1.2.msi
 .. _PyScripter: http://pyscripter.googlecode.com/files/PyScripter-v1.9.9.7-Setup.exe
-
-
-Calendario
-----------
-.. include:: calendario.rst
 

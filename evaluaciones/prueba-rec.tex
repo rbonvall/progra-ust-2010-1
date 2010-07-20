@@ -1,0 +1,187 @@
+\documentclass[10pt,spanish]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{fullpage}
+\usepackage{listings}
+\usepackage{mathpazo}
+\usepackage{courier}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{tikz}
+
+\newcommand{\onelinerule}{\rule[2.3ex]{0pt}{0pt}}
+\newcommand{\twolinerule}{\rule[6.2ex]{0pt}{0pt}}
+\newcommand{\respuesta}{\framebox[\textwidth]{\twolinerule}}
+\newcommand{\nombre}{\framebox[0.9\textwidth]{\onelinerule}}
+
+\lstdefinelanguage{py3}{%
+  classoffset=0,%
+    morekeywords={%
+      False,class,finally,is,return,None,continue,for,lambda,try,%
+      True,def,from,nonlocal,while,and,del,global,not,with,%
+      as,elif,if,or,yield,assert,else,import,pass,break,except,in,raise},%
+    keywordstyle=\color{black!80}\bfseries,%
+  classoffset=1,
+    morekeywords={int,float,str,abs,len,input,print,exit,range,min,max,%
+      set,dict,tuple,list},
+    keywordstyle=\color{black!50}\bfseries,%
+  classoffset=0,%
+  sensitive=true,%
+  morecomment=[l]\#,%
+  morestring=[b]',%
+  morestring=[b]",%
+  stringstyle=\em,%
+}
+\lstset{language=py3}
+\lstset{basicstyle=\ttfamily}
+\lstset{columns=fixed}
+\lstset{upquote=true}
+\lstset{upquote=true}
+\lstset{showstringspaces=false}
+
+\begin{document}
+  \thispagestyle{empty}
+  \pagestyle{empty}
+  {\Large\bfseries Programación---Prueba recuperativa, lunes 19 de julio de 2010}
+
+  Nombre: \nombre
+
+  \vspace{1ex}
+  \begin{enumerate}
+    \item
+      Escriba la salida de cada programa.
+
+      \foreach \x in {1,2,...,9} {
+        \noindent
+        \begin{minipage}[b]{15.5em}
+          \lstinputlisting{programas-prueba-rec/p\x.py}
+          \framebox[14em]{\rule[5ex]{0pt}{0pt}}
+          \vspace{0.7em}
+        \end{minipage}
+      }
+    \item
+      Rutee el siguiente programa con la entrada \lstinline!n = 56!,
+      y determine qué es lo que hace el programa.
+
+      \hspace{2em}
+      \begin{minipage}{.4\textwidth}
+        \lstinputlisting[frame=single,numbers=left,numberstyle=\small]{programas-prueba-rec/ruteo.py}
+        \vspace{5ex}
+        ¿Qué hace el programa?
+
+        \framebox[\textwidth]{\rule[10.0ex]{0pt}{0pt}}
+      \end{minipage}
+      \hspace{4em}
+      \begin{minipage}{.5\textwidth}
+        \begin{tabular}{| p{2.5em} || *{4}{p{2.5em} |}}\hline
+          Línea & \hfill\tt n & \hfill\tt r & \hfill\tt m \\\hline\hline
+          \hfill\small 1 & \hfill 56 && \\\hline
+          \hfill\small 2 & & \hfill 3 & \\\hline
+          \hfill\small 3 &&& \\\hline
+          \hfill\small 5 &&& \\\hline
+          \hfill\small 6 &&& \\\hline
+          &&& \\\hline &&& \\\hline &&& \\\hline
+          &&& \\\hline &&& \\\hline &&& \\\hline
+          &&& \\\hline &&& \\\hline &&& \\\hline
+        \end{tabular}
+      \end{minipage}
+
+    \item
+      Desarrolle un programa que pida al usuario
+      que ingrese varios números, uno por uno.
+      Cuando el usuario ingrese el 0,
+      el programa debe terminar, entregando como salida
+      la cantidad de números positivos y negativos que fueron ingresados.
+
+      Por ejemplo,
+      si el usuario ingresa los números
+      \(5, -4, -2, -7, 7, -1\) y \(0\),
+      el programa debe entregar la siguiente salida:%
+      \begin{verbatim}
+  Positivos: 2
+  Negativos: 4
+      \end{verbatim}
+      \vspace{40ex}
+
+    \item
+      Dos palabras son \emph{anagramas}
+      si tienen las mismas letras pero en otro orden.
+      Por ejemplo, ``torpes'' y ``postre'' son anagramas,
+      mientras que ``aparta'' y ``raptar'' no lo son,
+      ya que ``raptar'' tiene una \emph{r} de más
+      y una \emph{a} de menos.
+
+      Escriba una función \lstinline!son_anagramas(p1, p2)!,
+      que indique si las palabras \lstinline!p1! y \lstinline!p2!
+      son anagramas:
+      \begin{lstlisting}
+>>> son_anagramas('torpes', 'postre')
+True
+>>> son_anagramas('aparta', 'raptar')
+False
+      \end{lstlisting}
+      \newpage
+
+    \item
+      El diccionario \lstinline!paises! asocia cada persona
+      con el conjunto de los países que ha visitado:
+      \begin{lstlisting}
+paises = {
+  'Pepito': {'Chile', 'Argentina'},
+  'Yayita': {'Francia', 'Suiza', 'Chile'},
+  'John': {'Chile', 'Italia', 'Francia', 'Peru'},
+  ...
+}
+\end{lstlisting}
+      Escriba una función \lstinline!cuantos_en_comun(a, b)!,
+      que indique cuántos países en común han visitado
+      la persona \lstinline!a! y la persona \lstinline!b!:
+      \begin{lstlisting}
+>>> cuantos_en_comun('Pepito', 'John')
+1
+>>> cuantos_en_comun('John', 'Yayita')
+2
+      \end{lstlisting}
+
+
+      \vspace{30ex}
+
+    \item
+      Las notas de un ramo están almacenadas
+      en un archivo llamado \texttt{notas.txt}.
+      Cada línea tiene el nombre del alumno y sus seis notas,
+      separadas por dos puntos (``\verb!:!'').
+
+      Escriba un programa que cree un nuevo archivo
+      llamado \texttt{reporte.txt},
+      en que cada línea indique
+      si el alumno está aprobado (promedio \(\ge 4.0\))
+      o reprobado (promedio \(< 4.0\)).
+
+      \vspace{2ex}
+      \begin{minipage}[c]{.45\textwidth}
+        \texttt{notas.txt}:
+        \begin{lstlisting}[language={},frame=single]
+Pepito:3.3:3.7:3.7:6.7:1.1:2.5
+Yayita:5.8:5.2:2.0:3.6:6.0:2.0
+Fulanita:1.2:5.6:5.4:5.1:5.8:4.3
+Moya:2.6:4.7:1.8:3.5:2.7:4.5
+        \end{lstlisting}
+      \end{minipage}
+      \hspace{1em}
+      \(\longrightarrow\)
+      \hspace{1em}
+      \begin{minipage}[c]{.3\textwidth}
+        \texttt{reporte.txt}:
+        \begin{lstlisting}[language={},frame=single]
+Pepito reprobado
+Yayita aprobado
+Fulanita aprobado
+Moya reprobado
+        \end{lstlisting}
+      \end{minipage}
+
+  \end{enumerate}
+\end{document}
+

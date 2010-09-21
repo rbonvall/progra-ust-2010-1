@@ -4,4 +4,6 @@ diagramas/*.aux
 diagramas/*.log
 diagramas/*.pdf
 _static/jsMath
+_static/evaluaciones
+bodega
 *.pyc

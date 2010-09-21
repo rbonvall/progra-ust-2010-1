@@ -10,7 +10,7 @@ YELLOW = $(shell tput setaf 3)$(1)$(shell tput sgr0)
 ON_SUCCESS = (rm $(1); echo "$(call GREEN,done)")
 ON_ERROR = (echo "$(call RED,error)"; sed -n '/^!/,$$p' $(1); rm $(1); exit 1)
 
-TEXFLAGS = --halt-on-error --interaction nonstopmode
+TEXFLAGS = -halt-on-error -interaction nonstopmode
 define BUILD_WITH
     T=$$(mktemp); \
     $(1) $(TEXFLAGS) $< &> $$T && \

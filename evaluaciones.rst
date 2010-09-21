@@ -26,19 +26,19 @@ resolviendo las pruebas y los controles que rindió durante el semestre.
 
 * Pregunta 3:
 
-  .. literalinclude:: evaluaciones/solucion-rec/p3.py
+  .. literalinclude:: evaluaciones/programas/solucion-rec/p3.py
 
 * Pregunta 4:
 
-  .. literalinclude:: evaluaciones/solucion-rec/p4.py
+  .. literalinclude:: evaluaciones/programas/solucion-rec/p4.py
 
 * Pregunta 5:
 
-  .. literalinclude:: evaluaciones/solucion-rec/p5.py
+  .. literalinclude:: evaluaciones/programas/solucion-rec/p5.py
 
 * Pregunta 6:
 
-  .. literalinclude:: evaluaciones/solucion-rec/p6.py
+  .. literalinclude:: evaluaciones/programas/solucion-rec/p6.py
 
 .. include:: disqus.rst
 

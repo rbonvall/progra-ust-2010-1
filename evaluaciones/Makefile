@@ -13,7 +13,7 @@ ON_ERROR = (echo "$(call RED,error)"; sed -n '/^!/,$$p' $(1); rm $(1); exit 1)
 TEXFLAGS = -halt-on-error -interaction nonstopmode
 define BUILD_WITH
     T=$$(mktemp); \
-    $(1) $(TEXFLAGS) $< &> $$T && \
+    $(1) $(TEXFLAGS) $< > $$T 2>&1 /dev/null && \
         $(call ON_SUCCESS,$$T) || \
 	$(call ON_ERROR,$$T)
 endef

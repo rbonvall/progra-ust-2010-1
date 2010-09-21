@@ -1,0 +1,353 @@
+\documentclass[10pt,spanish]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{fullpage}
+\usepackage{listings}
+\usepackage{mathpazo}
+\usepackage{courier}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{tikz}
+
+\newcommand{\onelinerule}{\rule[2.3ex]{0pt}{0pt}}
+\newcommand{\twolinerule}{\rule[6.2ex]{0pt}{0pt}}
+\newcommand{\respuesta}{\framebox[\textwidth]{\twolinerule}}
+\newcommand{\nombre}{\framebox[0.9\textwidth]{\onelinerule}}
+
+\lstdefinelanguage{py3}{%
+  classoffset=0,%
+    morekeywords={%
+      False,class,finally,is,return,None,continue,for,lambda,try,%
+      True,def,from,nonlocal,while,and,del,global,not,with,%
+      as,elif,if,or,yield,assert,else,import,pass,break,except,in,raise},%
+    keywordstyle=\color{black!80}\bfseries,%
+  classoffset=1,
+    morekeywords={int,float,str,abs,len,input,print,exit,range,min,max,%
+      set,dict,tuple,list,type},
+    keywordstyle=\color{black!50}\bfseries,%
+  classoffset=0,%
+  sensitive=true,%
+  morecomment=[l]\#,%
+  morestring=[b]',%
+  morestring=[b]",%
+  stringstyle=\em,%
+}
+\lstset{language=py3}
+\lstset{basicstyle=\ttfamily}
+\lstset{columns=fixed}
+\lstset{upquote=true}
+\lstset{upquote=true}
+\lstset{showstringspaces=false}
+
+\begin{document}
+  \thispagestyle{empty}
+  \pagestyle{empty}
+  {\Large\bfseries Programación---Guía de preparación para el examen}
+
+  \vspace{1ex}
+  \begin{enumerate}
+    \item
+      Escriba la salida de cada programa.
+
+      \foreach \x in {1,2,3} {
+        \noindent
+        \begin{minipage}[b]{15.5em}
+          \lstinputlisting{programas-guia/p\x.py}
+          \framebox[14em]{\rule[5ex]{0pt}{0pt}}
+          \vspace{0.7em}
+        \end{minipage}
+      }
+
+    \item
+      Escriba una función \lstinline!es_divisible(n, d)!
+      que indique si \(n\) es divisible por \(d\):
+\begin{lstlisting}
+>>> es_divisible(15, 5)
+True
+>>> es_divisible(15, 6)
+False
+\end{lstlisting}
+ 
+    \item
+      Escriba una función \lstinline!es_primo(n)!
+      que indique si el número \lstinline!n! es primo o no:
+\begin{lstlisting}
+>>> es_primo(9)                  >>> es_primo(2)         
+False                            True                    
+>>> es_primo(7)                  >>> es_primo(1)         
+True                             False                   
+\end{lstlisting}
+
+    \item
+      Escriba una función \lstinline!digitos(n)!
+      que entregue una lista con los dígitos de \lstinline!n!:
+\begin{lstlisting}
+>>> digitos(142857)
+[1, 4, 2, 8, 5, 7]
+\end{lstlisting}
+
+    \item
+      Escriba las siguientes funciones que \emph{cuentan cosas}.
+      Todas las funciones reciben como parámetro una lista \verb+L+
+      de números enteros, y retornan el resultado indicado.
+      \begin{enumerate}
+        \item \lstinline!cuenta(L)!:
+          cuenta cuántos elementos tiene \verb+L+.
+        \item \lstinline!cuenta_i(L)!:
+          cuenta cuántos elementos impares tiene \verb+L+.
+        \item \lstinline!cuenta_p(L)!:
+          cuenta cuántos elementos primos tiene \verb+L+.
+        \item \lstinline!cuenta_mp(L)!:
+          cuenta cuántos elementos de \verb+L+
+          son menores que el promedio.
+        \item \lstinline!cuenta_m(L)!:
+          cuenta cuántos elementos de \verb+L+ terminan en 7.
+      \end{enumerate}
+      ¿Cuántos de los números primos entre 1 y 1000 terminan en 7?
+      (Respuesta: 46).
+
+    \item
+      Escriba las siguientes funciones que \emph{suman cosas}.
+      Todas las funciones reciben como parámetro una lista \verb+L+
+      de números enteros, y retornan el resultado indicado.
+      \begin{enumerate}
+        \item \lstinline!suma(L)!:
+          suma los elementos de \verb+L+.
+        \item \lstinline!suma_i(L)!:
+          suma los elementos impares de \verb+L+.
+        \item \lstinline!suma_c(L)!:
+          suma los cuadrados de los elementos de \verb+L+.
+        \item \lstinline!suma_ci(L)!:
+          suma los cuadrados de los elementos impares de \verb+L+.
+      \end{enumerate}
+      ¿Cuánto es la suma de los cuadrados de los números primos entre 1 y 1000?
+      (Respuesta: 49.345.379).
+
+    \item
+      Escriba las siguientes funciones que \emph{mapean} listas,
+      es decir, convierten una lista en otra, elemento por elemento.
+      Todas las funciones reciben como parámetro una lista \verb+L+
+      de números enteros, y retornan una nueva lista.
+      \begin{enumerate}
+        \item \lstinline!cuadrados(L)!:
+          entrega todos los elementos de \verb+L+ elevados al cuadrado.
+        \item \lstinline!ultimos_digitos(L)!:
+          entrega el último dígito de cada valor de \verb+L+.
+        \item \lstinline!son_primos(L)!:
+          entrega una lista con valores \lstinline+True+ y \lstinline+False+,
+          dependiendo si el elemento respectivo de \verb+L+ es primo o no:
+\begin{lstlisting}
+>>> son_primos([91, 77, 31, 29, 27])
+[False, False, True, True, False]
+\end{lstlisting}
+      \end{enumerate}
+
+    \item
+      Escriba las siguientes funciones que \emph{reducen} listas,
+      es decir, obtienen un único valor a partir de todos los elementos de una lista.
+      Todas las funciones reciben como parámetro una lista \verb+L+
+      de números enteros, y retornan un único valor.
+      \begin{enumerate}
+        \item \lstinline!producto(L)!:
+          entrega el producto de los elementos de \verb+L+.
+        \item \lstinline!maximo(L)!:
+          entrega el mayor de los elementos de \verb+L+.
+          (Prohibido usar la función \lstinline+max+).
+        \item \lstinline!hay_multiplo_de_siete(L)!:
+          retorna \lstinline+True+ si alguno de los valores de \verb+L+
+          es un múltiplo de 7, y \lstinline+False+ si ninguno lo es.
+      \end{enumerate}
+
+    \item
+      Escriba las siguientes funciones que \emph{filtran} listas,
+      es decir, sólo conservan los elementos de una lista
+      que cumplen una condición.
+      Todas las funciones reciben como parámetro una lista \verb+L+
+      de números enteros, y retornan una nueva lista.
+      \begin{enumerate}
+        \item \lstinline!positivos(L)!: 
+          entrega una lista con los valores de \verb+L+ que son positivos.
+        \item \lstinline!mayores_que(L, n)!: 
+          entrega una lista con los valores de \verb+L+ que son mayores que \verb+n+.
+        \item \lstinline!primos(L)!:
+          entrega una lista con los valores de \verb+L+ que son primos.
+        \item \lstinline!mayores_que_el_promedio(L)!:
+          entrega una lista con los valores de \verb+L+
+          que son mayores que el promedio.
+        \item \lstinline!con_siete(L)!:
+          entrega una lista con los valores de \verb+L+
+          que tienen el dígito 7.
+      \end{enumerate}
+      ¿Cuál es el producto de todos los números primos menores que 100
+      que tienen algún dígito 7? (Respuesta: \(
+      7\cdot 17\cdot 37\cdot 47\cdot 67\cdot 71\cdot 73\cdot 79\cdot 97
+      =\) 550.682.633.299.463)
+
+    \item
+      Un \emph{cubo perfecto} es un entero
+      que es igual a otro entero elevado a tres.
+      Los primeros cubos perfectos son 1, 8, 27 y 64.
+      \begin{enumerate}
+        \item Escriba una función \lstinline!es_cubo_perfecto(n)!
+          que indique si un número es o no un cubo perfecto:
+\begin{lstlisting}
+>>> es_cubo_perfecto(27)
+True
+>>> es_cubo_perfecto(49)
+False
+\end{lstlisting}
+        \item Escriba una función \lstinline!es_suma_de_cubos_perfectos(n)!
+          que indique si un número puede ser expresado
+          como la suma de dos cubos perfectos.
+          Por ejemplo, el 35 sí puede (\(2^3 + 3^3\)),
+          pero el 41 no.
+\begin{lstlisting}
+>>> es_suma_de_cubos_perfectos(35)
+True
+>>> es_suma_de_cubos_perfectos(41)
+False
+\end{lstlisting}
+        \item (Difícil) El \emph{número de Hardy-Ramanujan}
+          es el menor número entero que puede ser expresado
+          como la suma de dos cubos perfectos
+          de dos maneras distintas (\(a^3 + b^3 = c^3 + d^3\)).
+          Escriba un programa que descubra este número.
+      \end{enumerate}
+
+    \item
+      Considere el siguiente trozo de programa:
+\begin{lstlisting}
+d = {
+  (1, 2): [{1, 2}, {3}, {1, 3}],
+  (2, 1): [{3}, {1, 2}, {1, 2, 3}],
+  (2, 2): [{}, {2, 3}, {1, 3}],
+}
+\end{lstlisting}
+      Indique el valor y el tipo de las siguientes expresiones:
+      \begin{itemize}
+        \item \lstinline!d[(1, 2)][2]!
+          \hfill
+          [Respuesta: el valor es \lstinline!{1, 3}!,
+          el tipo es \lstinline!set! (conjunto)]
+        \item \lstinline!len(d)!
+          \hfill
+          [Respuesta: el valor es \lstinline!3!,
+          el tipo es \lstinline!int! (entero)]
+        \item \lstinline!(1, 2)!
+        \item \lstinline!(1, 2)[1]!
+        \item \lstinline!d[(1, 2)][1]!
+        \item \lstinline!d[(1, 2)]!
+        \item \lstinline!len(d[(2, 1)])!
+        \item \lstinline!len(d[(2, 1)][1])!
+        \item \lstinline!d[(2, 2)][1] & d[(1, 2)][2]!
+        \item \lstinline!(d[(2, 2)] + d[(2, 1)])[4]!
+      \end{itemize}
+
+      Puede verificar su respuesta en el intérprete interactivo.
+      Para ver el tipo, puede usar la función \lstinline+type+:
+\begin{lstlisting}
+>>> v = d[(1, 2)][2]
+>>> v
+{1, 3}
+>>> type(v)
+<class 'set'>
+\end{lstlisting}
+
+    \item Ejercicios para llenar diccionarios.
+      \begin{enumerate}
+        \item 
+          Escriba una función \lstinline+largo_palabras(oracion)+
+          que asocie a cada palabra de la oración
+          el total de letras que tiene:
+\begin{lstlisting}
+>>> largo_palabras('el gato y el pato son amigos')
+{'el': 2, 'son': 3, 'gato': 4, 'y': 1, 'amigos': 6, 'pato': 4}
+\end{lstlisting}
+        \item 
+          Escriba una función \lstinline+contar_vocales(oracion)+
+          que asocie a cada vocal
+          la cantidad de veces que aparece en la oración:
+\begin{lstlisting}
+>>> contar_vocales('el gato y el pato son amigos')
+{'a': 3, 'i': 1, 'e': 2, 'u': 0, 'o': 4}
+\end{lstlisting}
+      \end{enumerate}
+
+    \item
+      Las fechas de nacimiento de varias personas
+      están guardadas en un diccionario.
+      Cada llave es el nombre de una persona,
+      y cada valor es una tupla de tres elementos:
+      el año, el mes y el día.
+\begin{lstlisting}
+fechas_de_nacimiento = {
+  'Pepito': (1983, 10, 27),
+  'Fulanita': (1962, 2, 14),
+  'Jaimito': (1955, 3, 3),
+  'Yayita': (1990, 12, 4),
+}
+\end{lstlisting}
+      \begin{enumerate}
+        \item Escriba una función \lstinline!edad(p)!
+          que entregue la edad de la persona \verb+p+.
+        \item Escriba una función \lstinline!mas_viejo()!
+          que indique quién es la persona más vieja.
+        \item Escriba una función \lstinline!primer_cumple()!
+          que indique la fecha del primer cumpleaños del año.
+      \end{enumerate}
+
+    \item
+      Todo número entero mayor que uno
+      puede ser expresado como un único producto de números primos.
+      Esto se llama la \emph{factorización prima} del número.
+      Por ejemplo:
+      \(84 = 2\cdot 2\cdot 3\cdot 7\),
+      \(39 = 3\cdot 13\), y
+      \(539 = 7\cdot 7\cdot 11\).
+      \begin{enumerate}
+        \item Escriba una función \lstinline!fp(n)!
+          que entregue la lista de los factores primos de \lstinline!n!:
+\begin{lstlisting}
+>>> fp(84)
+[2, 2, 3, 7]
+>>> fp(39)
+[3, 13]
+>>> fp(7)
+[7]
+\end{lstlisting}
+          Puede comprobar que el resultado es correcto
+          usando la función \lstinline+producto+
+          que usted mismo escribió para un ejercicio anterior:
+\begin{lstlisting}
+>>> producto(fp(84))
+84
+>>> producto(fp(12345))
+12345
+\end{lstlisting}
+        \item Escriba una función \lstinline!factorizar_valores(L)!
+          que entregue un diccionario
+          asociando a cada valor de la lista \lstinline!L!
+          su factorización prima:
+\begin{lstlisting}
+>>> factorizar_valores([84, 539, 12])
+{12: [2, 2, 3], 539: [7, 7, 11], 84: [2, 2, 3, 7]}
+\end{lstlisting}
+      \end{enumerate}
+      Solución de la parte \emph{a})
+      (intente resolverla por su cuenta antes de mirarla):
+\begin{lstlisting}
+def fp(n):
+    f = []
+    while n > 1:
+        d = menor_factor_primo(n)
+        f.append(d)
+        n = n // d
+    return f
+\end{lstlisting}
+Definir la función \lstinline!menor_factor_primo(n)!
+queda de tarea.
+
+  \end{enumerate}
+\end{document}
+

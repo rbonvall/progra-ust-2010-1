@@ -159,6 +159,14 @@ donde :math:`n` es la cantidad de valores,
 :math:`m` es el promedio de los valores, y
 :math:`x_i` es cada uno de los valores.
 
+Esto significa que hay que hacerlo siguiendo estos pasos:
+
+* calcular el promedio de los valores;
+* a cada valor hay que restarle el promedio, y el resultado elevarlo al cuadrado;
+* sumar todos los valores obtenidos;
+* dividir la suma por la cantidad de valores; y
+* sacar la raíz cuadrada (o elevar a :math:`0.5`) del resultado.
+
 Puede probar su función en el intérprete interactivo::
 
     >>> desviacion_estandar([1.3, 1.3, 1.3])

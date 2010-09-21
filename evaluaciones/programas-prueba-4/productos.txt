@@ -1,0 +1,7 @@
+1265,Reloj,5000
+613,Cuaderno,900
+9801,Vuvuzela,15000
+321,Lapiz,400
+5413,Martillo,3000
+857,Paleta,6000
+612,Pizza,1200

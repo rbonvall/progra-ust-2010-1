@@ -1,0 +1,144 @@
+\documentclass[10pt,spanish]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{fullpage}
+\usepackage{listings}
+\usepackage{mathpazo}
+\usepackage{courier}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{tikz}
+
+\newcommand{\onelinerule}{\rule[2.3ex]{0pt}{0pt}}
+\newcommand{\twolinerule}{\rule[6.2ex]{0pt}{0pt}}
+\newcommand{\respuesta}{\framebox[\textwidth]{\twolinerule}}
+\newcommand{\nombre}{\framebox[0.9\textwidth]{\onelinerule}}
+\newcommand{\li}{\lstinline}
+
+\lstdefinelanguage{py3}{%
+  classoffset=0,%
+    morekeywords={%
+      False,class,finally,is,return,None,continue,for,lambda,try,%
+      True,def,from,nonlocal,while,and,del,global,not,with,%
+      as,elif,if,or,yield,assert,else,import,pass,break,except,in,raise},%
+    keywordstyle=\color{black!80}\bfseries,%
+  classoffset=1,
+    morekeywords={int,float,str,abs,len,input,print,exit,range,min,max,%
+      set,dict,tuple,list},
+    keywordstyle=\color{black!50}\bfseries,%
+  classoffset=0,%
+  sensitive=true,%
+  morecomment=[l]\#,%
+  morestring=[b]',%
+  morestring=[b]",%
+  stringstyle=\em,%
+}
+\lstset{language=py3}
+\lstset{basicstyle=\ttfamily}
+\lstset{columns=fixed}
+\lstset{upquote=true}
+\lstset{upquote=true}
+\lstset{showstringspaces=false}
+
+\begin{document}
+  \thispagestyle{empty}
+  \pagestyle{empty}
+  {\Large\bfseries Programación---Examen, 30 de julio de 2010}
+
+  Nombre: \nombre
+
+  \vspace{1ex}
+  \begin{enumerate}
+
+    \item
+      Escriba una función \li!digitos(n)!
+      que entregue una lista con los dígitos de \li!n!:
+      \begin{lstlisting}[gobble=8]
+        >>> digitos(142857)
+        [1, 4, 2, 8, 5, 7]
+      \end{lstlisting}
+
+    \vspace{48ex}
+        
+    \item
+      Escriba una función \li!es_primo(n)!
+      que indique si el número \li!n! es primo o no:
+      \begin{lstlisting}[gobble=8]
+        >>> es_primo(9)                  >>> es_primo(2)         
+        False                            True                    
+        >>> es_primo(17)                 >>> es_primo(1)         
+        True                             False                   
+      \end{lstlisting}
+
+    \newpage
+
+    \item
+      Escriba una función \li!suma_cuadrados_primos(m)!
+      que entregue la suma de los cuadrados de los números primos
+      menores que \li!m!:
+      \begin{lstlisting}[gobble=8]
+        >>> suma_cuadrados_primos(10)
+        87
+        >>> 2 * 2 + 3 * 3 + 5 * 5 + 7 * 7
+        87
+      \end{lstlisting}
+
+    \vspace{52ex}
+
+    \item 
+      Escriba una función \li!mayores_que_el_promedio(l)!
+      que reciba una lista \li!l! de números reales,
+      que entregue la lista de los valores
+      que son mayores que el promedio,
+      ordenados de menor a mayor:
+      \begin{lstlisting}[gobble=8]
+        >>> valores = [3.5, 2.0, 4.0, 1.0, 3.0]
+        >>> mayores_que_el_promedio(valores)
+        [3.0, 3.5, 4.0]
+      \end{lstlisting}
+
+    \newpage
+
+    \item
+      Las fechas de nacimiento de varias personas están guardadas en un diccionario.
+      Cada llave es el nombre,
+      y cada valor es una tupla de tres elementos:
+      el año, el mes y el día:
+      \begin{lstlisting}[gobble=8]
+        fechas_de_nacimiento = {
+          'Pepito': (1983, 5, 14),
+          'Fulanita': (1985, 5, 7),
+          'Jaimito': (1955, 3, 3),
+          'Yayita': (1962, 12, 4),
+          'Zutanita': (1986, 11, 24),
+        }
+      \end{lstlisting}
+
+      \begin{enumerate}
+        \item
+          Escriba una función \li!cuenta_cumples_mes(m)!
+          que cuente cuántas personas tienen cumpleaños en el mes \li!m!:
+          \begin{lstlisting}[gobble=12]
+            >>> cuenta_cumples_mes(5)
+            2
+            >>> cuenta_cumples_mes(8)
+            0
+          \end{lstlisting}
+
+        \vspace{40ex}
+
+        \item
+          Escriba una función \li!edades(fechas_de_nacimiento)!
+          que retorne un diccionario que asocie a cada persona
+          su edad:
+          \begin{lstlisting}[gobble=12]
+            >>> edades(fechas_de_nacimiento)
+            {'Zutanita': 24, 'Pepito': 27, 'Fulanita': 25, 'Jaimito': 55, 'Yayita': 48}
+          \end{lstlisting}
+        
+      \end{enumerate}
+
+  \end{enumerate}
+\end{document}
+
